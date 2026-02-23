@@ -17,6 +17,144 @@ import {
   HiStar,
 } from "react-icons/hi2";
 
+const dummyFeaturedAds = [
+  {
+    _id: "demo-1",
+    title: "iPhone 15 Pro Max 256GB - PTA Approved",
+    price: 520000,
+    images: [{ url: "https://images.unsplash.com/photo-1695048133142-1a20484d2569?w=800&h=600&fit=crop" }],
+    location: { city: "Lahore", province: "Punjab" },
+    createdAt: new Date(Date.now() - 2 * 3600000).toISOString(),
+    isFeatured: true,
+    seller: { isVerified: true },
+    category: "Mobiles",
+  },
+  {
+    _id: "demo-2",
+    title: "Toyota Corolla 2022 GLi Automatic - Low Mileage",
+    price: 4850000,
+    images: [{ url: "https://images.unsplash.com/photo-1621007947382-bb3c3994e3fb?w=800&h=600&fit=crop" }],
+    location: { city: "Karachi", province: "Sindh" },
+    createdAt: new Date(Date.now() - 5 * 3600000).toISOString(),
+    isFeatured: true,
+    seller: { isVerified: true },
+    category: "Cars",
+  },
+  {
+    _id: "demo-3",
+    title: "5 Marla House for Sale - Bahria Town Phase 8",
+    price: 18500000,
+    images: [{ url: "https://images.unsplash.com/photo-1564013799919-ab600027ffc6?w=800&h=600&fit=crop" }],
+    location: { city: "Rawalpindi", province: "Punjab" },
+    createdAt: new Date(Date.now() - 8 * 3600000).toISOString(),
+    isFeatured: true,
+    seller: { isVerified: true },
+    category: "Property",
+  },
+  {
+    _id: "demo-4",
+    title: "Samsung 55\" Smart TV 4K UHD - Crystal Display",
+    price: 145000,
+    images: [{ url: "https://images.unsplash.com/photo-1593359677879-a4bb92f829d1?w=800&h=600&fit=crop" }],
+    location: { city: "Islamabad", province: "ICT" },
+    createdAt: new Date(Date.now() - 3 * 3600000).toISOString(),
+    isFeatured: true,
+    seller: { isVerified: false },
+    category: "Electronics",
+  },
+];
+
+const dummyRecentAds = [
+  {
+    _id: "demo-5",
+    title: "MacBook Pro M3 14\" - 16GB RAM 512GB SSD",
+    price: 680000,
+    images: [{ url: "https://images.unsplash.com/photo-1517336714731-489689fd1ca8?w=800&h=600&fit=crop" }],
+    location: { city: "Islamabad", province: "ICT" },
+    createdAt: new Date(Date.now() - 30 * 60000).toISOString(),
+    isFeatured: false,
+    seller: { isVerified: true },
+    category: "Electronics",
+  },
+  {
+    _id: "demo-6",
+    title: "Honda CG 125 - 2023 Model First Owner",
+    price: 285000,
+    images: [{ url: "https://images.unsplash.com/photo-1558618666-fcd25c85f82e?w=800&h=600&fit=crop" }],
+    location: { city: "Peshawar", province: "KPK" },
+    createdAt: new Date(Date.now() - 45 * 60000).toISOString(),
+    isFeatured: false,
+    seller: { isVerified: false },
+    category: "Cars",
+  },
+  {
+    _id: "demo-7",
+    title: "Office Furniture Set - Executive Desk & Chair",
+    price: 85000,
+    images: [{ url: "https://images.unsplash.com/photo-1555041469-a586c61ea9bc?w=800&h=600&fit=crop" }],
+    location: { city: "Faisalabad", province: "Punjab" },
+    createdAt: new Date(Date.now() - 1 * 3600000).toISOString(),
+    isFeatured: false,
+    seller: { isVerified: true },
+    category: "Furniture",
+  },
+  {
+    _id: "demo-8",
+    title: "Samsung Galaxy S24 Ultra 12/256 GB",
+    price: 340000,
+    images: [{ url: "https://images.unsplash.com/photo-1610945265064-0e34e5519bbf?w=800&h=600&fit=crop" }],
+    location: { city: "Karachi", province: "Sindh" },
+    createdAt: new Date(Date.now() - 2 * 3600000).toISOString(),
+    isFeatured: false,
+    seller: { isVerified: false },
+    category: "Mobiles",
+  },
+  {
+    _id: "demo-9",
+    title: "3 BHK Apartment for Rent - Gulberg III",
+    price: 95000,
+    images: [{ url: "https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?w=800&h=600&fit=crop" }],
+    location: { city: "Lahore", province: "Punjab" },
+    createdAt: new Date(Date.now() - 4 * 3600000).toISOString(),
+    isFeatured: false,
+    seller: { isVerified: true },
+    category: "Property",
+  },
+  {
+    _id: "demo-10",
+    title: "Sony PlayStation 5 Slim with 2 Controllers",
+    price: 135000,
+    images: [{ url: "https://images.unsplash.com/photo-1606144042614-b2417e99c4e3?w=800&h=600&fit=crop" }],
+    location: { city: "Multan", province: "Punjab" },
+    createdAt: new Date(Date.now() - 6 * 3600000).toISOString(),
+    isFeatured: false,
+    seller: { isVerified: false },
+    category: "Electronics",
+  },
+  {
+    _id: "demo-11",
+    title: "Men's Formal Suit - Premium Wool Blend",
+    price: 12500,
+    images: [{ url: "https://images.unsplash.com/photo-1594938298603-c8148c4dae35?w=800&h=600&fit=crop" }],
+    location: { city: "Lahore", province: "Punjab" },
+    createdAt: new Date(Date.now() - 7 * 3600000).toISOString(),
+    isFeatured: false,
+    seller: { isVerified: false },
+    category: "Fashion",
+  },
+  {
+    _id: "demo-12",
+    title: "German Shepherd Puppies - Vaccinated & Healthy",
+    price: 45000,
+    images: [{ url: "https://images.unsplash.com/photo-1589941013453-ec89f33b5e95?w=800&h=600&fit=crop" }],
+    location: { city: "Rawalpindi", province: "Punjab" },
+    createdAt: new Date(Date.now() - 10 * 3600000).toISOString(),
+    isFeatured: false,
+    seller: { isVerified: true },
+    category: "Animals",
+  },
+];
+
 export default function HomePage() {
   const [featuredAds, setFeaturedAds] = useState([]);
   const [recentAds, setRecentAds] = useState([]);
@@ -27,9 +165,11 @@ export default function HomePage() {
     const fetchFeatured = async () => {
       try {
         const res = await adsAPI.getFeatured();
-        setFeaturedAds(res.data?.ads || res.data || []);
+        const ads = res.data?.ads || res.data || [];
+        setFeaturedAds(ads.length > 0 ? ads : dummyFeaturedAds);
       } catch (err) {
         console.error("Failed to fetch featured ads:", err);
+        setFeaturedAds(dummyFeaturedAds);
       } finally {
         setLoadingFeatured(false);
       }
@@ -38,9 +178,11 @@ export default function HomePage() {
     const fetchRecent = async () => {
       try {
         const res = await adsAPI.getRecent();
-        setRecentAds(res.data?.ads || res.data || []);
+        const ads = res.data?.ads || res.data || [];
+        setRecentAds(ads.length > 0 ? ads : dummyRecentAds);
       } catch (err) {
         console.error("Failed to fetch recent ads:", err);
+        setRecentAds(dummyRecentAds);
       } finally {
         setLoadingRecent(false);
       }
