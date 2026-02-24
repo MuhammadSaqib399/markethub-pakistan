@@ -16,6 +16,12 @@ import {
   HiRectangleStack,
   HiArrowRight,
   HiStar,
+  HiChatBubbleLeftRight,
+  HiPhone,
+  HiEnvelope,
+  HiQuestionMarkCircle,
+  HiClock,
+  HiCheckBadge,
 } from "react-icons/hi2";
 
 const dummyFeaturedAds = [
@@ -155,6 +161,127 @@ const dummyRecentAds = [
     category: "Animals",
   },
 ];
+
+const customerReviews = [
+  {
+    id: 1,
+    name: "Ahmed Khan",
+    city: "Lahore",
+    rating: 5,
+    review: "Mujhe apni purani car yahan bechi, sirf 3 din mein buyer mil gaya! Bohat acha platform hai, highly recommended for everyone.",
+    date: "2 weeks ago",
+    avatar: "AK",
+    bgColor: "bg-green-500",
+  },
+  {
+    id: 2,
+    name: "Fatima Noor",
+    city: "Karachi",
+    rating: 5,
+    review: "As a woman seller, I felt very safe using MarketHub. Verified buyers, quick responses, and sold my furniture set within a week!",
+    date: "1 week ago",
+    avatar: "FN",
+    bgColor: "bg-purple-500",
+  },
+  {
+    id: 3,
+    name: "Usman Ali",
+    city: "Islamabad",
+    rating: 4,
+    review: "iPhone 14 Pro liya yahan se, seller verified tha aur phone bhi original. Price bhi market se kam mila. Great experience overall!",
+    date: "3 days ago",
+    avatar: "UA",
+    bgColor: "bg-blue-500",
+  },
+  {
+    id: 4,
+    name: "Ayesha Tariq",
+    city: "Rawalpindi",
+    rating: 5,
+    review: "Maine apna ghar rent pe diya MarketHub ke through. Bahut reliable tenants mile. Customer support ne bhi bohat help ki!",
+    date: "5 days ago",
+    avatar: "AT",
+    bgColor: "bg-pink-500",
+  },
+  {
+    id: 5,
+    name: "Bilal Hussain",
+    city: "Faisalabad",
+    rating: 4,
+    review: "Best marketplace in Pakistan! Bought a Honda CG 125, the chat feature made negotiation super easy. Seller was very cooperative.",
+    date: "1 week ago",
+    avatar: "BH",
+    bgColor: "bg-amber-500",
+  },
+  {
+    id: 6,
+    name: "Sana Malik",
+    city: "Multan",
+    rating: 5,
+    review: "I run a small clothing business and MarketHub helped me reach customers across Pakistan. Orders doubled in just one month!",
+    date: "4 days ago",
+    avatar: "SM",
+    bgColor: "bg-teal-500",
+  },
+];
+
+const supportFeatures = [
+  {
+    icon: HiChatBubbleLeftRight,
+    title: "Live Chat Support",
+    desc: "Get instant help from our support team. Available 24/7 to resolve your queries in real-time.",
+    color: "text-green-600",
+    bg: "bg-green-50",
+  },
+  {
+    icon: HiPhone,
+    title: "Phone Support",
+    desc: "Call us at 0800-MARKET (627538). Our dedicated team speaks Urdu, English & regional languages.",
+    color: "text-blue-600",
+    bg: "bg-blue-50",
+  },
+  {
+    icon: HiEnvelope,
+    title: "Email Support",
+    desc: "Email us at support@markethub.pk. We respond within 2 hours during business hours.",
+    color: "text-purple-600",
+    bg: "bg-purple-50",
+  },
+  {
+    icon: HiQuestionMarkCircle,
+    title: "Help Center",
+    desc: "Browse our comprehensive FAQ section with 200+ articles covering buying, selling & account help.",
+    color: "text-amber-600",
+    bg: "bg-amber-50",
+  },
+  {
+    icon: HiShieldCheck,
+    title: "Fraud Protection",
+    desc: "Our team monitors suspicious activity 24/7. Report scams and we take action within 1 hour.",
+    color: "text-red-600",
+    bg: "bg-red-50",
+  },
+  {
+    icon: HiClock,
+    title: "Quick Resolution",
+    desc: "95% of disputes resolved within 48 hours. Your satisfaction and safety is our top priority.",
+    color: "text-emerald-600",
+    bg: "bg-emerald-50",
+  },
+];
+
+function StarRating({ rating }) {
+  return (
+    <div className="flex gap-0.5">
+      {[1, 2, 3, 4, 5].map((star) => (
+        <HiStar
+          key={star}
+          className={`h-4 w-4 ${star <= rating ? "text-amber-400" : "text-gray-200"}`}
+        />
+      ))}
+    </div>
+  );
+}
 
 export default function HomePage() {
   const [featuredAds, setFeaturedAds] = useState([]);
@@ -352,6 +479,126 @@ export default function HomePage() {
             <p className="text-lg">No recent listings yet</p>
           </div>
         )}
+      </section>
+
+      {/* Customer Ratings & Reviews */}
+      <section className="bg-gradient-to-b from-gray-50 to-white border-t border-gray-100">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-16">
+          <div className="text-center mb-10">
+            <div className="flex items-center justify-center gap-2 mb-2">
+              <HiStar className="h-6 w-6 text-amber-400" />
+              <HiStar className="h-6 w-6 text-amber-400" />
+              <HiStar className="h-6 w-6 text-amber-400" />
+              <HiStar className="h-6 w-6 text-amber-400" />
+              <HiStar className="h-6 w-6 text-amber-400" />
+            </div>
+            <h2 className="text-2xl sm:text-3xl font-bold text-gray-900">
+              What Our Customers Say
+            </h2>
+            <p className="text-gray-500 mt-2 max-w-xl mx-auto">
+              Trusted by over 100,000 buyers and sellers across Pakistan. Here&apos;s what they think about us.
+            </p>
+            <div className="flex items-center justify-center gap-6 mt-4">
+              <div className="text-center">
+                <p className="text-2xl font-bold text-green-600">4.8/5</p>
+                <p className="text-xs text-gray-400">Average Rating</p>
+              </div>
+              <div className="w-px h-10 bg-gray-200" />
+              <div className="text-center">
+                <p className="text-2xl font-bold text-green-600">25K+</p>
+                <p className="text-xs text-gray-400">Reviews</p>
+              </div>
+              <div className="w-px h-10 bg-gray-200" />
+              <div className="text-center">
+                <p className="text-2xl font-bold text-green-600">98%</p>
+                <p className="text-xs text-gray-400">Satisfaction</p>
+              </div>
+            </div>
+          </div>
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+            {customerReviews.map((review) => (
+              <div
+                key={review.id}
+                className="bg-white rounded-xl border border-gray-100 p-6 shadow-sm hover:shadow-md transition-shadow group"
+              >
+                <div className="flex items-center gap-3 mb-4">
+                  <div className={`${review.bgColor} w-11 h-11 rounded-full flex items-center justify-center text-white font-bold text-sm`}>
+                    {review.avatar}
+                  </div>
+                  <div className="flex-1 min-w-0">
+                    <div className="flex items-center gap-1.5">
+                      <h4 className="font-semibold text-gray-900 text-sm truncate">{review.name}</h4>
+                      <HiCheckBadge className="h-4 w-4 text-green-500 flex-shrink-0" />
+                    </div>
+                    <p className="text-xs text-gray-400">{review.city}</p>
+                  </div>
+                  <span className="text-xs text-gray-400">{review.date}</span>
+                </div>
+                <StarRating rating={review.rating} />
+                <p className="text-gray-600 text-sm mt-3 leading-relaxed line-clamp-3 group-hover:line-clamp-none transition-all">
+                  &ldquo;{review.review}&rdquo;
+                </p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Customer Support Section */}
+      <section className="bg-white border-y border-gray-100">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-16">
+          <div className="text-center mb-10">
+            <span className="inline-flex items-center gap-1.5 bg-green-50 text-green-700 text-xs font-semibold px-3 py-1 rounded-full uppercase tracking-wide mb-3">
+              <HiChatBubbleLeftRight className="h-3.5 w-3.5" />
+              Always Here for You
+            </span>
+            <h2 className="text-2xl sm:text-3xl font-bold text-gray-900">
+              Customer Support
+            </h2>
+            <p className="text-gray-500 mt-2 max-w-xl mx-auto">
+              We&apos;re committed to making your buying and selling experience smooth and safe. Reach out anytime!
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+            {supportFeatures.map((feature, idx) => (
+              <div
+                key={idx}
+                className="group relative rounded-xl border border-gray-100 p-6 hover:border-green-200 hover:shadow-lg transition-all duration-300"
+              >
+                <div className={`${feature.bg} w-12 h-12 rounded-xl flex items-center justify-center mb-4 group-hover:scale-110 transition-transform`}>
+                  <feature.icon className={`h-6 w-6 ${feature.color}`} />
+                </div>
+                <h3 className="font-semibold text-gray-900 text-lg mb-2">{feature.title}</h3>
+                <p className="text-gray-500 text-sm leading-relaxed">{feature.desc}</p>
+              </div>
+            ))}
+          </div>
+
+          <div className="mt-10 bg-gradient-to-r from-green-600 to-emerald-700 rounded-2xl p-8 sm:p-10 text-center">
+            <h3 className="text-xl sm:text-2xl font-bold text-white mb-2">Need Immediate Help?</h3>
+            <p className="text-green-100 mb-6 max-w-lg mx-auto text-sm">
+              Our support team is available around the clock. Don&apos;t hesitate to reach out!
+            </p>
+            <div className="flex flex-wrap items-center justify-center gap-4">
+              <Link
+                href="/help"
+                className="inline-flex items-center gap-2 bg-white text-green-700 px-6 py-3 rounded-lg font-semibold hover:bg-green-50 transition-colors text-sm"
+              >
+                <HiQuestionMarkCircle className="h-5 w-5" />
+                Visit Help Center
+              </Link>
+              <Link
+                href="/contact"
+                className="inline-flex items-center gap-2 bg-green-500/20 text-white border border-white/30 px-6 py-3 rounded-lg font-semibold hover:bg-green-500/30 transition-colors text-sm"
+              >
+                <HiEnvelope className="h-5 w-5" />
+                Contact Us
+              </Link>
+            </div>
+          </div>
+        </div>
       </section>
 
       {/* Banner Ad Placeholder */}
