@@ -94,9 +94,9 @@
   background: linear-gradient(
     135deg,
     #ffffff 0%,
-    #bbf7d0 25%,
+    #fef08a 25%,
     #ffffff 50%,
-    #86efac 75%,
+    #fde047 75%,
     #ffffff 100%
   );
   background-size: 400% 400%;
@@ -114,9 +114,9 @@
 /* Glow effect behind brand name */
 .brand-glow {
   text-shadow:
-    0 0 40px rgba(134, 239, 172, 0.4),
-    0 0 80px rgba(134, 239, 172, 0.2),
-    0 0 120px rgba(134, 239, 172, 0.1);
+    0 0 40px rgba(253, 224, 71, 0.5),
+    0 0 80px rgba(253, 224, 71, 0.25),
+    0 0 120px rgba(253, 224, 71, 0.12);
 }
 
 /* Underline decoration for brand */
@@ -132,7 +132,7 @@
   transform: translateX(-50%);
   width: 60%;
   height: 3px;
-  background: linear-gradient(90deg, transparent, rgba(134, 239, 172, 0.8), transparent);
+  background: linear-gradient(90deg, transparent, rgba(253, 224, 71, 0.8), transparent);
   border-radius: 2px;
 }
 

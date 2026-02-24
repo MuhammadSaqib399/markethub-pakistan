@@ -345,7 +345,7 @@ export default function HomePage() {
       <Navbar />
 
       {/* Hero Section */}
-      <section className="relative overflow-hidden bg-gradient-to-br from-green-600 via-green-700 to-emerald-800">
+      <section className="relative overflow-hidden bg-gradient-to-br from-yellow-500 via-amber-600 to-orange-700">
         {/* Interactive particle background */}
         <ParticleBackground />
 
@@ -354,7 +354,7 @@ export default function HomePage() {
             {/* Brand Name — Unique Bold Design */}
             <div className="relative inline-block">
               {/* Background glow blur */}
-              <div className="absolute inset-0 blur-3xl opacity-30 bg-gradient-to-r from-green-300 via-emerald-200 to-green-300 scale-150" />
+              <div className="absolute inset-0 blur-3xl opacity-30 bg-gradient-to-r from-yellow-200 via-amber-100 to-yellow-200 scale-150" />
               <h1 className="relative brand-name brand-underline">
                 <span className="block text-6xl sm:text-7xl lg:text-9xl font-black tracking-tight brand-gradient-text brand-glow leading-none">
                   ELYNDRA
@@ -365,18 +365,18 @@ export default function HomePage() {
             {/* Slogan — Elegant & Animated */}
             <div className="slogan-reveal">
               <div className="flex items-center justify-center gap-3 sm:gap-4 mb-2">
-                <span className="h-px w-8 sm:w-16 bg-gradient-to-r from-transparent to-green-300/60" />
+                <span className="h-px w-8 sm:w-16 bg-gradient-to-r from-transparent to-yellow-200/60" />
                 <p className="brand-slogan text-base sm:text-lg lg:text-xl text-white/90 font-light tracking-widest uppercase">
                   We won&apos;t praise it
                 </p>
-                <span className="h-px w-8 sm:w-16 bg-gradient-to-l from-transparent to-green-300/60" />
+                <span className="h-px w-8 sm:w-16 bg-gradient-to-l from-transparent to-yellow-200/60" />
               </div>
-              <p className="brand-slogan text-xl sm:text-2xl lg:text-3xl text-green-200 font-semibold tracking-wide">
+              <p className="brand-slogan text-xl sm:text-2xl lg:text-3xl text-yellow-100 font-semibold tracking-wide">
                 You&apos;ll <span className="text-white font-extrabold italic">Experience</span> It.
               </p>
             </div>
 
-            <p className="text-sm sm:text-base text-green-100/80 max-w-xl mx-auto pt-2 brand-slogan font-light tracking-wide">
+            <p className="text-sm sm:text-base text-yellow-50/80 max-w-xl mx-auto pt-2 brand-slogan font-light tracking-wide">
               Pakistan&apos;s fastest growing marketplace. Discover great deals
               on mobiles, cars, property, electronics, and more near you.
             </p>
@@ -385,7 +385,7 @@ export default function HomePage() {
               <SearchBar />
             </div>
 
-            <div className="flex flex-wrap items-center justify-center gap-6 pt-4 text-green-100 text-sm">
+            <div className="flex flex-wrap items-center justify-center gap-6 pt-4 text-yellow-50 text-sm">
               <span className="flex items-center gap-1.5">
                 <HiShieldCheck className="h-5 w-5" />
                 Verified Sellers

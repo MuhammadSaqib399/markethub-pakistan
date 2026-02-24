@@ -263,7 +263,7 @@ export default function ParticleBackground() {
             ctx.beginPath();
             ctx.moveTo(p.x, p.y);
             ctx.lineTo(p2.x, p2.y);
-            ctx.strokeStyle = `rgba(200, 255, 220, ${lineOpacity + mouseLineGlow})`;
+            ctx.strokeStyle = `rgba(255, 250, 200, ${lineOpacity + mouseLineGlow})`;
             ctx.lineWidth = 0.8;
             ctx.stroke();
           }
@@ -273,9 +273,9 @@ export default function ParticleBackground() {
       // ── Cursor glow ring ──────────────────────────────────────
       if (mx > 0 && my > 0) {
         const gradient = ctx.createRadialGradient(mx, my, 0, mx, my, MOUSE_RADIUS * 0.6);
-        gradient.addColorStop(0, "rgba(134, 239, 172, 0.12)");
-        gradient.addColorStop(0.5, "rgba(134, 239, 172, 0.04)");
-        gradient.addColorStop(1, "rgba(134, 239, 172, 0)");
+        gradient.addColorStop(0, "rgba(253, 224, 71, 0.15)");
+        gradient.addColorStop(0.5, "rgba(253, 224, 71, 0.05)");
+        gradient.addColorStop(1, "rgba(253, 224, 71, 0)");
         ctx.beginPath();
         ctx.arc(mx, my, MOUSE_RADIUS * 0.6, 0, Math.PI * 2);
         ctx.fillStyle = gradient;
