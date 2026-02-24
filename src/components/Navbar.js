@@ -44,6 +44,17 @@ import {
   HiBookOpen,
   HiBolt,
   HiFaceSmile,
+  HiEllipsisVertical,
+  HiCog6Tooth,
+  HiQuestionMarkCircle,
+  HiInformationCircle,
+  HiPhone,
+  HiDocumentText,
+  HiLockClosed,
+  HiFlag,
+  HiBanknotes,
+  HiLanguage,
+  HiSignal,
 } from "react-icons/hi2";
 
 const NAV_CATEGORIES = [
@@ -70,15 +81,20 @@ export default function Navbar() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [searchOpen, setSearchOpen] = useState(false); // mobile search expansion
   const [dropdownOpen, setDropdownOpen] = useState(false);
+  const [dotMenuOpen, setDotMenuOpen] = useState(false);
   const [searchQuery, setSearchQuery] = useState("");
 
   const dropdownRef = useRef(null);
+  const dotMenuRef = useRef(null);
 
-  // Close the user dropdown when clicking outside
+  // Close dropdowns when clicking outside
   useEffect(() => {
     function handleClickOutside(e) {
       if (dropdownRef.current && !dropdownRef.current.contains(e.target)) {
         setDropdownOpen(false);
+      }
+      if (dotMenuRef.current && !dotMenuRef.current.contains(e.target)) {
+        setDotMenuOpen(false);
       }
     }
     document.addEventListener("mousedown", handleClickOutside);
@@ -145,6 +161,20 @@ export default function Navbar() {
 
           {/* ── Desktop Right-side Links ─────────────────────── */}
           <div className="hidden md:flex items-center gap-3">
+            {/* Live Bargain Button */}
+            <Link
+              href="/bargain"
+              className="inline-flex items-center gap-1.5 rounded-lg bg-gradient-to-r from-orange-500 to-red-500 px-4 py-2
+                         text-sm font-semibold text-white hover:from-orange-600 hover:to-red-600 transition shadow-md hover:shadow-lg transform hover:scale-105"
+            >
+              <HiSignal className="h-5 w-5 animate-pulse" />
+              <span>Live Bargain</span>
+              <span className="relative flex h-2 w-2">
+                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-white opacity-75"></span>
+                <span className="relative inline-flex rounded-full h-2 w-2 bg-white"></span>
+              </span>
+            </Link>
+
             {/* Post Ad */}
             <Link
               href="/post-ad"
@@ -272,6 +302,123 @@ export default function Navbar() {
                 </Link>
               </div>
             )}
+
+            {/* ── 3-Dot Menu (⋮) ──────────────────────────── */}
+            <div className="relative" ref={dotMenuRef}>
+              <button
+                onClick={() => setDotMenuOpen((prev) => !prev)}
+                className="inline-flex items-center justify-center rounded-lg p-2
+                           text-gray-600 hover:bg-gray-100 transition"
+                aria-label="More options"
+              >
+                <HiEllipsisVertical className="h-5 w-5" />
+              </button>
+
+              {dotMenuOpen && (
+                <div
+                  className="absolute right-0 mt-2 w-56 origin-top-right rounded-xl
+                             bg-white shadow-xl ring-1 ring-black/5 py-2 z-50"
+                >
+                  <div className="px-4 py-2 border-b border-gray-100">
+                    <p className="text-xs font-semibold text-gray-400 uppercase tracking-wider">Quick Links</p>
+                  </div>
+                  <Link
+                    href="/bargain"
+                    onClick={() => setDotMenuOpen(false)}
+                    className="flex items-center gap-3 px-4 py-2.5 text-sm text-gray-700 hover:bg-orange-50 hover:text-orange-600"
+                  >
+                    <HiBanknotes className="h-4 w-4" /> Live Bargain
+                  </Link>
+                  <Link
+                    href="/post-ad"
+                    onClick={() => setDotMenuOpen(false)}
+                    className="flex items-center gap-3 px-4 py-2.5 text-sm text-gray-700 hover:bg-gray-50"
+                  >
+                    <HiPlusCircle className="h-4 w-4" /> Post Free Ad
+                  </Link>
+                  <Link
+                    href="/messages"
+                    onClick={() => setDotMenuOpen(false)}
+                    className="flex items-center gap-3 px-4 py-2.5 text-sm text-gray-700 hover:bg-gray-50"
+                  >
+                    <HiChatBubbleLeftRight className="h-4 w-4" /> My Messages
+                  </Link>
+                  <Link
+                    href="/favourites"
+                    onClick={() => setDotMenuOpen(false)}
+                    className="flex items-center gap-3 px-4 py-2.5 text-sm text-gray-700 hover:bg-gray-50"
+                  >
+                    <HiHeart className="h-4 w-4" /> Saved Ads
+                  </Link>
+
+                  <div className="px-4 py-2 border-t border-b border-gray-100 mt-1">
+                    <p className="text-xs font-semibold text-gray-400 uppercase tracking-wider">Help & Info</p>
+                  </div>
+                  <Link
+                    href="/help"
+                    onClick={() => setDotMenuOpen(false)}
+                    className="flex items-center gap-3 px-4 py-2.5 text-sm text-gray-700 hover:bg-gray-50"
+                  >
+                    <HiQuestionMarkCircle className="h-4 w-4" /> Help Center
+                  </Link>
+                  <Link
+                    href="/about"
+                    onClick={() => setDotMenuOpen(false)}
+                    className="flex items-center gap-3 px-4 py-2.5 text-sm text-gray-700 hover:bg-gray-50"
+                  >
+                    <HiInformationCircle className="h-4 w-4" /> About Us
+                  </Link>
+                  <Link
+                    href="/contact"
+                    onClick={() => setDotMenuOpen(false)}
+                    className="flex items-center gap-3 px-4 py-2.5 text-sm text-gray-700 hover:bg-gray-50"
+                  >
+                    <HiPhone className="h-4 w-4" /> Contact Us
+                  </Link>
+                  <Link
+                    href="/report"
+                    onClick={() => setDotMenuOpen(false)}
+                    className="flex items-center gap-3 px-4 py-2.5 text-sm text-gray-700 hover:bg-gray-50"
+                  >
+                    <HiFlag className="h-4 w-4" /> Report Fraud
+                  </Link>
+
+                  <div className="px-4 py-2 border-t border-b border-gray-100 mt-1">
+                    <p className="text-xs font-semibold text-gray-400 uppercase tracking-wider">Settings</p>
+                  </div>
+                  <Link
+                    href="/settings"
+                    onClick={() => setDotMenuOpen(false)}
+                    className="flex items-center gap-3 px-4 py-2.5 text-sm text-gray-700 hover:bg-gray-50"
+                  >
+                    <HiCog6Tooth className="h-4 w-4" /> Settings
+                  </Link>
+                  <Link
+                    href="/terms"
+                    onClick={() => setDotMenuOpen(false)}
+                    className="flex items-center gap-3 px-4 py-2.5 text-sm text-gray-700 hover:bg-gray-50"
+                  >
+                    <HiDocumentText className="h-4 w-4" /> Terms & Conditions
+                  </Link>
+                  <Link
+                    href="/privacy"
+                    onClick={() => setDotMenuOpen(false)}
+                    className="flex items-center gap-3 px-4 py-2.5 text-sm text-gray-700 hover:bg-gray-50"
+                  >
+                    <HiLockClosed className="h-4 w-4" /> Privacy Policy
+                  </Link>
+                  <button
+                    onClick={() => {
+                      setDotMenuOpen(false);
+                      document.documentElement.lang = document.documentElement.lang === "ur" ? "en" : "ur";
+                    }}
+                    className="flex w-full items-center gap-3 px-4 py-2.5 text-sm text-gray-700 hover:bg-gray-50"
+                  >
+                    <HiLanguage className="h-4 w-4" /> Language / Urdu
+                  </button>
+                </div>
+              )}
+            </div>
           </div>
 
           {/* ── Mobile: search icon + hamburger ──────────────── */}
@@ -326,6 +473,20 @@ export default function Navbar() {
       {mobileMenuOpen && (
         <div className="border-t border-gray-200 bg-white md:hidden">
           <div className="space-y-1 px-4 py-3">
+            {/* Live Bargain */}
+            <Link
+              href="/bargain"
+              onClick={() => setMobileMenuOpen(false)}
+              className="flex items-center gap-2 rounded-lg px-3 py-2 text-sm font-semibold
+                         text-orange-600 hover:bg-orange-50 bg-gradient-to-r from-orange-50 to-red-50"
+            >
+              <HiSignal className="h-5 w-5 animate-pulse" /> Live Bargain
+              <span className="relative flex h-2 w-2 ml-auto">
+                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-orange-400 opacity-75"></span>
+                <span className="relative inline-flex rounded-full h-2 w-2 bg-orange-500"></span>
+              </span>
+            </Link>
+
             {/* Post Ad */}
             <Link
               href="/post-ad"
