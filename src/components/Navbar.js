@@ -33,7 +33,33 @@ import {
   HiShieldCheck,
   HiHeart,
   HiChevronDown,
+  HiDevicePhoneMobile,
+  HiTruck,
+  HiHome,
+  HiComputerDesktop,
+  HiBriefcase,
+  HiWrenchScrewdriver,
+  HiSparkles,
+  HiCube,
+  HiBookOpen,
+  HiBolt,
+  HiFaceSmile,
 } from "react-icons/hi2";
+
+const NAV_CATEGORIES = [
+  { name: "Mobiles", icon: HiDevicePhoneMobile },
+  { name: "Cars", icon: HiTruck },
+  { name: "Property", icon: HiHome },
+  { name: "Electronics", icon: HiComputerDesktop },
+  { name: "Jobs", icon: HiBriefcase },
+  { name: "Services", icon: HiWrenchScrewdriver },
+  { name: "Fashion", icon: HiSparkles },
+  { name: "Furniture", icon: HiCube },
+  { name: "Animals", icon: HiHeart },
+  { name: "Books", icon: HiBookOpen },
+  { name: "Sports", icon: HiBolt },
+  { name: "Kids", icon: HiFaceSmile },
+];
 import { useAuth } from "@/context/AuthContext";
 
 export default function Navbar() {
@@ -406,6 +432,24 @@ export default function Navbar() {
           </div>
         </div>
       )}
+
+      {/* Categories Bar */}
+      <div className="hidden md:block bg-gray-50 border-b border-gray-100">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <div className="flex items-center gap-1 overflow-x-auto py-1.5 scrollbar-hide">
+            {NAV_CATEGORIES.map(({ name, icon: CatIcon }) => (
+              <Link
+                key={name}
+                href={`/category/${encodeURIComponent(name)}`}
+                className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-medium text-gray-600 hover:text-green-700 hover:bg-green-50 whitespace-nowrap transition-colors"
+              >
+                <CatIcon className="h-3.5 w-3.5" />
+                {name}
+              </Link>
+            ))}
+          </div>
+        </div>
+      </div>
     </nav>
   );
 }

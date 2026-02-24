@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import AdCard from "@/components/AdCard";
@@ -22,6 +23,10 @@ import {
   HiQuestionMarkCircle,
   HiClock,
   HiCheckBadge,
+  HiCamera,
+  HiChatBubbleBottomCenterText,
+  HiHandThumbUp,
+  HiBuildingOffice2,
 } from "react-icons/hi2";
 
 const dummyFeaturedAds = [
@@ -400,6 +405,44 @@ export default function HomePage() {
         <CategoryGrid />
       </section>
 
+      {/* How It Works */}
+      <section className="bg-white border-y border-gray-100">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-16">
+          <div className="text-center mb-10">
+            <h2 className="text-2xl sm:text-3xl font-bold text-gray-900">
+              How It Works
+            </h2>
+            <p className="text-gray-500 mt-2">Selling and buying has never been this easy</p>
+          </div>
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-8">
+            <div className="text-center group">
+              <div className="w-16 h-16 mx-auto bg-green-100 rounded-2xl flex items-center justify-center mb-4 group-hover:bg-green-600 group-hover:text-white text-green-600 transition-all duration-300 group-hover:scale-110">
+                <HiCamera className="h-8 w-8" />
+              </div>
+              <div className="bg-green-600 text-white text-xs font-bold w-6 h-6 rounded-full flex items-center justify-center mx-auto -mt-2 mb-3">1</div>
+              <h3 className="text-lg font-bold text-gray-900 mb-2">Post Your Ad</h3>
+              <p className="text-gray-500 text-sm leading-relaxed">Take photos, write a description, set your price. It&apos;s completely free and takes less than 2 minutes.</p>
+            </div>
+            <div className="text-center group">
+              <div className="w-16 h-16 mx-auto bg-blue-100 rounded-2xl flex items-center justify-center mb-4 group-hover:bg-blue-600 group-hover:text-white text-blue-600 transition-all duration-300 group-hover:scale-110">
+                <HiChatBubbleBottomCenterText className="h-8 w-8" />
+              </div>
+              <div className="bg-blue-600 text-white text-xs font-bold w-6 h-6 rounded-full flex items-center justify-center mx-auto -mt-2 mb-3">2</div>
+              <h3 className="text-lg font-bold text-gray-900 mb-2">Get Responses</h3>
+              <p className="text-gray-500 text-sm leading-relaxed">Interested buyers will contact you via chat or phone. Negotiate the best deal with verified users.</p>
+            </div>
+            <div className="text-center group">
+              <div className="w-16 h-16 mx-auto bg-amber-100 rounded-2xl flex items-center justify-center mb-4 group-hover:bg-amber-500 group-hover:text-white text-amber-600 transition-all duration-300 group-hover:scale-110">
+                <HiHandThumbUp className="h-8 w-8" />
+              </div>
+              <div className="bg-amber-500 text-white text-xs font-bold w-6 h-6 rounded-full flex items-center justify-center mx-auto -mt-2 mb-3">3</div>
+              <h3 className="text-lg font-bold text-gray-900 mb-2">Close the Deal</h3>
+              <p className="text-gray-500 text-sm leading-relaxed">Meet in a safe public place, inspect the item, and complete the transaction. It&apos;s that simple!</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Featured Listings */}
       <section className="bg-white border-y border-gray-100">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-16">
@@ -598,6 +641,51 @@ export default function HomePage() {
               </Link>
             </div>
           </div>
+        </div>
+      </section>
+
+      {/* Popular Cities */}
+      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-16 w-full">
+        <div className="text-center mb-8">
+          <h2 className="text-2xl sm:text-3xl font-bold text-gray-900">
+            Popular Cities
+          </h2>
+          <p className="text-gray-500 mt-2">Browse listings in major cities across Pakistan</p>
+        </div>
+        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4">
+          {[
+            { city: "Lahore", province: "Punjab", ads: "15,200", img: "https://images.unsplash.com/photo-1567527259232-a90f1e8e10c3?w=400&h=250&fit=crop" },
+            { city: "Karachi", province: "Sindh", ads: "18,500", img: "https://images.unsplash.com/photo-1562979314-bee7453e911c?w=400&h=250&fit=crop" },
+            { city: "Islamabad", province: "ICT", ads: "9,800", img: "https://images.unsplash.com/photo-1603912699214-92627f304eb6?w=400&h=250&fit=crop" },
+            { city: "Rawalpindi", province: "Punjab", ads: "7,340", img: "https://images.unsplash.com/photo-1477587458883-47145ed94245?w=400&h=250&fit=crop" },
+            { city: "Faisalabad", province: "Punjab", ads: "5,120", img: "https://images.unsplash.com/photo-1514924013411-cbf25faa35bb?w=400&h=250&fit=crop" },
+            { city: "Multan", province: "Punjab", ads: "4,250", img: "https://images.unsplash.com/photo-1504457047772-27faf1c00561?w=400&h=250&fit=crop" },
+            { city: "Peshawar", province: "KPK", ads: "3,870", img: "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=400&h=250&fit=crop" },
+            { city: "Quetta", province: "Balochistan", ads: "1,560", img: "https://images.unsplash.com/photo-1469474968028-56623f02e42e?w=400&h=250&fit=crop" },
+          ].map((c) => (
+            <Link
+              key={c.city}
+              href={`/search?province=${encodeURIComponent(c.province)}&city=${encodeURIComponent(c.city)}`}
+              className="group relative rounded-xl overflow-hidden shadow-sm border border-gray-100 hover:shadow-lg transition-all"
+            >
+              <div className="relative h-32 sm:h-36">
+                <Image
+                  src={c.img}
+                  alt={c.city}
+                  fill
+                  className="object-cover group-hover:scale-105 transition-transform duration-300"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent" />
+                <div className="absolute bottom-0 left-0 right-0 p-3">
+                  <div className="flex items-center gap-1.5">
+                    <HiBuildingOffice2 className="h-4 w-4 text-white/80" />
+                    <h3 className="text-white font-bold text-sm">{c.city}</h3>
+                  </div>
+                  <p className="text-white/70 text-xs mt-0.5">{c.ads} ads available</p>
+                </div>
+              </div>
+            </Link>
+          ))}
         </div>
       </section>
 
