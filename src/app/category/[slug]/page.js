@@ -244,6 +244,171 @@ const SORT_OPTIONS = [
   { value: "popular", label: "Most Popular" },
 ];
 
+const CATEGORY_FILTERS = {
+  Mobiles: {
+    question: "What type of mobile are you looking for?",
+    subcategories: ["Smartphones", "Feature Phones", "Tablets", "Accessories", "Spare Parts"],
+    budgets: [
+      { label: "Under 30K", min: 0, max: 30000 },
+      { label: "30K - 60K", min: 30000, max: 60000 },
+      { label: "60K - 100K", min: 60000, max: 100000 },
+      { label: "1 Lac - 2 Lac", min: 100000, max: 200000 },
+      { label: "2 Lac - 5 Lac", min: 200000, max: 500000 },
+      { label: "5 Lac+", min: 500000, max: Infinity },
+    ],
+    conditions: ["New", "Used", "Refurbished"],
+    brands: ["Apple", "Samsung", "Xiaomi", "Oppo", "Vivo", "Realme", "OnePlus", "Google Pixel", "Huawei"],
+  },
+  Cars: {
+    question: "What vehicle are you looking for?",
+    subcategories: ["Sedans", "SUVs", "Hatchbacks", "Motorcycles", "Trucks", "Vans", "Spare Parts"],
+    budgets: [
+      { label: "Under 5 Lac", min: 0, max: 500000 },
+      { label: "5 - 15 Lac", min: 500000, max: 1500000 },
+      { label: "15 - 30 Lac", min: 1500000, max: 3000000 },
+      { label: "30 - 50 Lac", min: 3000000, max: 5000000 },
+      { label: "50 Lac - 1 Cr", min: 5000000, max: 10000000 },
+      { label: "1 Crore+", min: 10000000, max: Infinity },
+    ],
+    conditions: ["New", "Used"],
+    brands: ["Toyota", "Honda", "Suzuki", "Hyundai", "KIA", "Changan", "MG", "BMW", "Mercedes"],
+  },
+  Property: {
+    question: "What property type interests you?",
+    subcategories: ["Houses", "Apartments", "Plots", "Commercial", "Rooms", "Shops", "Offices"],
+    budgets: [
+      { label: "Under 50 Lac", min: 0, max: 5000000 },
+      { label: "50 Lac - 1 Cr", min: 5000000, max: 10000000 },
+      { label: "1 - 2 Crore", min: 10000000, max: 20000000 },
+      { label: "2 - 5 Crore", min: 20000000, max: 50000000 },
+      { label: "5 Crore+", min: 50000000, max: Infinity },
+    ],
+    conditions: ["For Sale", "For Rent"],
+    brands: ["Bahria Town", "DHA", "Gulberg", "Model Town", "Clifton", "F-Sector", "Blue Area"],
+  },
+  Electronics: {
+    question: "What electronics do you need?",
+    subcategories: ["Laptops", "TVs", "Gaming", "Cameras", "Audio", "Home Appliances", "Accessories"],
+    budgets: [
+      { label: "Under 10K", min: 0, max: 10000 },
+      { label: "10K - 30K", min: 10000, max: 30000 },
+      { label: "30K - 80K", min: 30000, max: 80000 },
+      { label: "80K - 2 Lac", min: 80000, max: 200000 },
+      { label: "2 Lac - 5 Lac", min: 200000, max: 500000 },
+      { label: "5 Lac+", min: 500000, max: Infinity },
+    ],
+    conditions: ["New", "Used", "Refurbished"],
+    brands: ["Apple", "Samsung", "Sony", "Dell", "HP", "LG", "Canon", "Lenovo"],
+  },
+  Jobs: {
+    question: "What job type are you looking for?",
+    subcategories: ["IT & Software", "Marketing", "Accounting", "Teaching", "Sales", "Medical", "Engineering", "Part-Time"],
+    budgets: [
+      { label: "Under 30K/mo", min: 0, max: 30000 },
+      { label: "30K - 60K/mo", min: 30000, max: 60000 },
+      { label: "60K - 100K/mo", min: 60000, max: 100000 },
+      { label: "1 - 2 Lac/mo", min: 100000, max: 200000 },
+      { label: "2 - 5 Lac/mo", min: 200000, max: 500000 },
+      { label: "5 Lac+/mo", min: 500000, max: Infinity },
+    ],
+    conditions: ["Full-Time", "Part-Time", "Contract", "Remote"],
+    brands: [],
+  },
+  Services: {
+    question: "What service do you need?",
+    subcategories: ["Home Services", "Repair", "Tutoring", "Web/IT", "Photography", "Moving", "Beauty", "Car Services"],
+    budgets: [
+      { label: "Under 5K", min: 0, max: 5000 },
+      { label: "5K - 15K", min: 5000, max: 15000 },
+      { label: "15K - 50K", min: 15000, max: 50000 },
+      { label: "50K - 1 Lac", min: 50000, max: 100000 },
+      { label: "1 Lac+", min: 100000, max: Infinity },
+    ],
+    conditions: ["One-Time", "Monthly", "Hourly"],
+    brands: [],
+  },
+  Fashion: {
+    question: "What fashion items are you looking for?",
+    subcategories: ["Men's Clothing", "Women's Clothing", "Shoes", "Watches", "Jewelry", "Bags", "Sunglasses", "Kids Wear"],
+    budgets: [
+      { label: "Under 2K", min: 0, max: 2000 },
+      { label: "2K - 5K", min: 2000, max: 5000 },
+      { label: "5K - 15K", min: 5000, max: 15000 },
+      { label: "15K - 50K", min: 15000, max: 50000 },
+      { label: "50K+", min: 50000, max: Infinity },
+    ],
+    conditions: ["New", "Used"],
+    brands: ["Nike", "Adidas", "Gul Ahmed", "Khaadi", "Junaid Jamshed", "Casio", "Ray-Ban"],
+  },
+  Furniture: {
+    question: "What furniture do you need?",
+    subcategories: ["Sofas", "Beds", "Tables", "Chairs", "Wardrobes", "Office Furniture", "Outdoor", "Decor"],
+    budgets: [
+      { label: "Under 10K", min: 0, max: 10000 },
+      { label: "10K - 30K", min: 10000, max: 30000 },
+      { label: "30K - 60K", min: 30000, max: 60000 },
+      { label: "60K - 1 Lac", min: 60000, max: 100000 },
+      { label: "1 Lac+", min: 100000, max: Infinity },
+    ],
+    conditions: ["New", "Used"],
+    brands: [],
+  },
+  Animals: {
+    question: "What pet/animal are you looking for?",
+    subcategories: ["Dogs", "Cats", "Birds", "Fish", "Farm Animals", "Rabbits", "Pet Food", "Accessories"],
+    budgets: [
+      { label: "Under 5K", min: 0, max: 5000 },
+      { label: "5K - 15K", min: 5000, max: 15000 },
+      { label: "15K - 30K", min: 15000, max: 30000 },
+      { label: "30K - 60K", min: 30000, max: 60000 },
+      { label: "60K+", min: 60000, max: Infinity },
+    ],
+    conditions: ["Vaccinated", "Not Vaccinated"],
+    brands: [],
+  },
+  Books: {
+    question: "What type of books do you need?",
+    subcategories: ["Textbooks", "Novels", "Competitive Exams", "Religious", "Children", "Comics", "IELTS/TOEFL", "Engineering"],
+    budgets: [
+      { label: "Under 500", min: 0, max: 500 },
+      { label: "500 - 2K", min: 500, max: 2000 },
+      { label: "2K - 5K", min: 2000, max: 5000 },
+      { label: "5K - 10K", min: 5000, max: 10000 },
+      { label: "10K+", min: 10000, max: Infinity },
+    ],
+    conditions: ["New", "Used"],
+    brands: [],
+  },
+  Sports: {
+    question: "What sports equipment do you need?",
+    subcategories: ["Cricket", "Football", "Gym Equipment", "Cycling", "Badminton", "Boxing", "Swimming", "Table Tennis"],
+    budgets: [
+      { label: "Under 5K", min: 0, max: 5000 },
+      { label: "5K - 15K", min: 5000, max: 15000 },
+      { label: "15K - 40K", min: 15000, max: 40000 },
+      { label: "40K - 80K", min: 40000, max: 80000 },
+      { label: "80K+", min: 80000, max: Infinity },
+    ],
+    conditions: ["New", "Used"],
+    brands: ["Nike", "Adidas", "Yonex", "Kookaburra", "Reebok", "Under Armour"],
+  },
+  Kids: {
+    question: "What kids items are you looking for?",
+    subcategories: ["Toys", "Baby Gear", "Strollers", "Kids Clothing", "School Supplies", "Bikes", "Cribs", "Educational"],
+    budgets: [
+      { label: "Under 3K", min: 0, max: 3000 },
+      { label: "3K - 8K", min: 3000, max: 8000 },
+      { label: "8K - 20K", min: 8000, max: 20000 },
+      { label: "20K - 50K", min: 20000, max: 50000 },
+      { label: "50K+", min: 50000, max: Infinity },
+    ],
+    conditions: ["New", "Used"],
+    brands: [],
+  },
+};
+
+const CITIES = ["Lahore", "Karachi", "Islamabad", "Rawalpindi", "Faisalabad", "Multan", "Peshawar", "Quetta", "Sialkot", "Gujranwala"];
+
 export default function CategoryPage() {
   const params = useParams();
   const slug = decodeURIComponent(params.slug);
@@ -252,6 +417,13 @@ export default function CategoryPage() {
   const [ads, setAds] = useState([]);
   const [loading, setLoading] = useState(true);
   const [sort, setSort] = useState("newest");
+  const [showFilters, setShowFilters] = useState(true);
+  const [selectedSubcategory, setSelectedSubcategory] = useState("");
+  const [selectedBudget, setSelectedBudget] = useState(null);
+  const [selectedCondition, setSelectedCondition] = useState("");
+  const [selectedCity, setSelectedCity] = useState("");
+  const [selectedBrand, setSelectedBrand] = useState("");
+  const filters = CATEGORY_FILTERS[slug];
 
   const fetchCategoryAds = useCallback(async () => {
     setLoading(true);
@@ -290,7 +462,29 @@ export default function CategoryPage() {
   }
 
   const Icon = category.icon;
-  const sortedAds = [...ads].sort((a, b) => {
+  const activeFilterCount = [selectedSubcategory, selectedBudget, selectedCondition, selectedCity, selectedBrand].filter(Boolean).length;
+
+  const clearAllFilters = () => {
+    setSelectedSubcategory("");
+    setSelectedBudget(null);
+    setSelectedCondition("");
+    setSelectedCity("");
+    setSelectedBrand("");
+  };
+
+  const filteredAds = ads.filter((ad) => {
+    if (selectedBudget) {
+      const price = ad.price || 0;
+      if (price < selectedBudget.min || price > selectedBudget.max) return false;
+    }
+    if (selectedCity) {
+      const city = ad.location?.city || "";
+      if (city !== selectedCity) return false;
+    }
+    return true;
+  });
+
+  const sortedAds = [...filteredAds].sort((a, b) => {
     if (sort === "price_asc") return (a.price || 0) - (b.price || 0);
     if (sort === "price_desc") return (b.price || 0) - (a.price || 0);
     return new Date(b.createdAt) - new Date(a.createdAt);
@@ -344,6 +538,155 @@ export default function CategoryPage() {
         </div>
       </section>
 
+      {/* Filter Wizard */}
+      {filters && showFilters && (
+        <section className="bg-white border-b border-gray-100 shadow-sm">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 sm:py-8">
+            <div className="flex items-center justify-between mb-5">
+              <div>
+                <h2 className="text-lg sm:text-xl font-bold text-gray-900 flex items-center gap-2">
+                  <HiFunnel className="h-5 w-5 text-green-600" />
+                  {filters.question}
+                </h2>
+                <p className="text-sm text-gray-500 mt-0.5">Select your preferences to find the best results</p>
+              </div>
+              <button
+                onClick={() => setShowFilters(false)}
+                className="text-gray-400 hover:text-gray-600 p-1.5 rounded-lg hover:bg-gray-100 transition-colors"
+              >
+                <HiXMark className="h-5 w-5" />
+              </button>
+            </div>
+
+            {/* Subcategory */}
+            <div className="mb-5">
+              <p className="text-sm font-semibold text-gray-700 mb-2.5">Category Type</p>
+              <div className="flex flex-wrap gap-2">
+                {filters.subcategories.map((sub) => (
+                  <button
+                    key={sub}
+                    onClick={() => setSelectedSubcategory(selectedSubcategory === sub ? "" : sub)}
+                    className={`px-4 py-2 rounded-full text-sm font-medium border transition-all ${
+                      selectedSubcategory === sub
+                        ? "bg-green-600 text-white border-green-600 shadow-sm"
+                        : "bg-white text-gray-600 border-gray-200 hover:border-green-300 hover:text-green-700"
+                    }`}
+                  >
+                    {sub}
+                  </button>
+                ))}
+              </div>
+            </div>
+
+            {/* Budget */}
+            <div className="mb-5">
+              <p className="text-sm font-semibold text-gray-700 mb-2.5">
+                {slug === "Jobs" ? "Salary Range" : slug === "Property" && selectedCondition === "For Rent" ? "Rent Budget" : "Budget Range"}
+              </p>
+              <div className="flex flex-wrap gap-2">
+                {filters.budgets.map((b, i) => (
+                  <button
+                    key={i}
+                    onClick={() => setSelectedBudget(selectedBudget?.label === b.label ? null : b)}
+                    className={`px-4 py-2 rounded-full text-sm font-medium border transition-all ${
+                      selectedBudget?.label === b.label
+                        ? "bg-green-600 text-white border-green-600 shadow-sm"
+                        : "bg-white text-gray-600 border-gray-200 hover:border-green-300 hover:text-green-700"
+                    }`}
+                  >
+                    Rs. {b.label}
+                  </button>
+                ))}
+              </div>
+            </div>
+
+            {/* Condition */}
+            <div className="mb-5">
+              <p className="text-sm font-semibold text-gray-700 mb-2.5">
+                {slug === "Jobs" ? "Job Type" : slug === "Property" ? "Listing Type" : "Condition"}
+              </p>
+              <div className="flex flex-wrap gap-2">
+                {filters.conditions.map((cond) => (
+                  <button
+                    key={cond}
+                    onClick={() => setSelectedCondition(selectedCondition === cond ? "" : cond)}
+                    className={`px-4 py-2 rounded-full text-sm font-medium border transition-all ${
+                      selectedCondition === cond
+                        ? "bg-green-600 text-white border-green-600 shadow-sm"
+                        : "bg-white text-gray-600 border-gray-200 hover:border-green-300 hover:text-green-700"
+                    }`}
+                  >
+                    {cond}
+                  </button>
+                ))}
+              </div>
+            </div>
+
+            {/* Brands - only show if available */}
+            {filters.brands && filters.brands.length > 0 && (
+              <div className="mb-5">
+                <p className="text-sm font-semibold text-gray-700 mb-2.5">
+                  {slug === "Property" ? "Location / Society" : "Brand"}
+                </p>
+                <div className="flex flex-wrap gap-2">
+                  {filters.brands.map((brand) => (
+                    <button
+                      key={brand}
+                      onClick={() => setSelectedBrand(selectedBrand === brand ? "" : brand)}
+                      className={`px-4 py-2 rounded-full text-sm font-medium border transition-all ${
+                        selectedBrand === brand
+                          ? "bg-green-600 text-white border-green-600 shadow-sm"
+                          : "bg-white text-gray-600 border-gray-200 hover:border-green-300 hover:text-green-700"
+                      }`}
+                    >
+                      {brand}
+                    </button>
+                  ))}
+                </div>
+              </div>
+            )}
+
+            {/* City */}
+            <div className="mb-5">
+              <p className="text-sm font-semibold text-gray-700 mb-2.5">City</p>
+              <div className="flex flex-wrap gap-2">
+                {CITIES.map((city) => (
+                  <button
+                    key={city}
+                    onClick={() => setSelectedCity(selectedCity === city ? "" : city)}
+                    className={`px-4 py-2 rounded-full text-sm font-medium border transition-all ${
+                      selectedCity === city
+                        ? "bg-green-600 text-white border-green-600 shadow-sm"
+                        : "bg-white text-gray-600 border-gray-200 hover:border-green-300 hover:text-green-700"
+                    }`}
+                  >
+                    {city}
+                  </button>
+                ))}
+              </div>
+            </div>
+
+            {/* Action Row */}
+            {activeFilterCount > 0 && (
+              <div className="flex items-center gap-3 pt-3 border-t border-gray-100">
+                <span className="text-sm text-gray-500">
+                  <span className="font-semibold text-green-600">{activeFilterCount}</span> filter{activeFilterCount > 1 ? "s" : ""} applied
+                  {" "}&middot;{" "}
+                  <span className="font-semibold text-green-600">{sortedAds.length}</span> results
+                </span>
+                <button
+                  onClick={clearAllFilters}
+                  className="ml-auto text-sm text-red-500 hover:text-red-600 font-medium flex items-center gap-1 transition-colors"
+                >
+                  <HiXMark className="h-4 w-4" />
+                  Clear All
+                </button>
+              </div>
+            )}
+          </div>
+        </section>
+      )}
+
       {/* Main Content */}
       <main className="flex-1 max-w-7xl mx-auto w-full px-4 sm:px-6 lg:px-8 py-8">
         {/* Breadcrumb */}
@@ -352,6 +695,64 @@ export default function CategoryPage() {
           <HiChevronRight className="h-4 w-4" />
           <span className="text-gray-900 font-medium">{slug}</span>
         </nav>
+
+        {/* Show filters toggle + active filter chips */}
+        {!showFilters && (
+          <button
+            onClick={() => setShowFilters(true)}
+            className="mb-4 inline-flex items-center gap-2 px-4 py-2 bg-white border border-gray-200 rounded-xl text-sm font-medium text-gray-700 hover:bg-gray-50 transition-colors"
+          >
+            <HiFunnel className="h-4 w-4 text-green-600" />
+            Show Filters
+            {activeFilterCount > 0 && (
+              <span className="bg-green-600 text-white text-xs rounded-full px-1.5 py-0.5 min-w-[20px] text-center">
+                {activeFilterCount}
+              </span>
+            )}
+          </button>
+        )}
+
+        {/* Active Filter Chips */}
+        {activeFilterCount > 0 && (
+          <div className="flex flex-wrap gap-2 mb-5">
+            {selectedSubcategory && (
+              <span className="inline-flex items-center gap-1.5 bg-green-50 text-green-700 text-xs font-medium px-3 py-1.5 rounded-full border border-green-200">
+                {selectedSubcategory}
+                <button onClick={() => setSelectedSubcategory("")} className="hover:text-green-900"><HiXMark className="h-3.5 w-3.5" /></button>
+              </span>
+            )}
+            {selectedBudget && (
+              <span className="inline-flex items-center gap-1.5 bg-green-50 text-green-700 text-xs font-medium px-3 py-1.5 rounded-full border border-green-200">
+                Rs. {selectedBudget.label}
+                <button onClick={() => setSelectedBudget(null)} className="hover:text-green-900"><HiXMark className="h-3.5 w-3.5" /></button>
+              </span>
+            )}
+            {selectedCondition && (
+              <span className="inline-flex items-center gap-1.5 bg-green-50 text-green-700 text-xs font-medium px-3 py-1.5 rounded-full border border-green-200">
+                {selectedCondition}
+                <button onClick={() => setSelectedCondition("")} className="hover:text-green-900"><HiXMark className="h-3.5 w-3.5" /></button>
+              </span>
+            )}
+            {selectedBrand && (
+              <span className="inline-flex items-center gap-1.5 bg-green-50 text-green-700 text-xs font-medium px-3 py-1.5 rounded-full border border-green-200">
+                {selectedBrand}
+                <button onClick={() => setSelectedBrand("")} className="hover:text-green-900"><HiXMark className="h-3.5 w-3.5" /></button>
+              </span>
+            )}
+            {selectedCity && (
+              <span className="inline-flex items-center gap-1.5 bg-green-50 text-green-700 text-xs font-medium px-3 py-1.5 rounded-full border border-green-200">
+                {selectedCity}
+                <button onClick={() => setSelectedCity("")} className="hover:text-green-900"><HiXMark className="h-3.5 w-3.5" /></button>
+              </span>
+            )}
+            <button
+              onClick={clearAllFilters}
+              className="text-xs text-red-500 hover:text-red-600 font-medium px-2 transition-colors"
+            >
+              Clear All
+            </button>
+          </div>
+        )}
 
         {/* Top Bar */}
         <div className="flex items-center justify-between mb-6 flex-wrap gap-3">
