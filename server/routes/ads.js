@@ -147,6 +147,60 @@ router.get("/recent", async (req, res) => {
   }
 });
 
+// ==================== GET ADS BY CATEGORY ====================
+router.get("/category/:category", async (req, res) => {
+  try {
+    const { category } = req.params;
+    const { sort = "newest", page = 1, limit = 20, minPrice, maxPrice, condition, province, city } = req.query;
+
+    const filter = { status: "active", category };
+    if (minPrice || maxPrice) {
+      filter.price = {};
+      if (minPrice) filter.price.$gte = Number(minPrice);
+      if (maxPrice) filter.price.$lte = Number(maxPrice);
+    }
+    if (condition) filter.condition = condition;
+    if (province) filter["location.province"] = province;
+    if (city) filter["location.city"] = city;
+
+    const sortOptions = {
+      newest: { createdAt: -1 },
+      price_asc: { price: 1 },
+      price_desc: { price: -1 },
+      popular: { views: -1 },
+    };
+    const sortBy = sortOptions[sort] || sortOptions.newest;
+
+    const safePage = Math.max(1, Number(page) || 1);
+    const safeLimit = Math.min(Math.max(1, Number(limit) || 20), 50);
+    const skip = (safePage - 1) * safeLimit;
+
+    const [ads, total] = await Promise.all([
+      Ad.find(filter)
+        .sort(sortBy)
+        .skip(skip)
+        .limit(safeLimit)
+        .populate("seller", "name avatar isVerifiedSeller rating")
+        .lean(),
+      Ad.countDocuments(filter),
+    ]);
+
+    res.json({
+      ads,
+      category,
+      pagination: {
+        currentPage: safePage,
+        totalPages: Math.ceil(total / safeLimit),
+        totalAds: total,
+        hasMore: skip + ads.length < total,
+      },
+    });
+  } catch (error) {
+    console.error("Get category ads error:", error);
+    res.status(500).json({ message: "Server error fetching category ads" });
+  }
+});
+
 // ==================== GET SINGLE AD ====================
 router.get("/:id", optionalAuth, async (req, res) => {
   try {

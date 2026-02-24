@@ -63,7 +63,7 @@ export default function CategoryGrid() {
         {CATEGORIES.map(({ name, icon: Icon, count }) => (
           <Link
             key={name}
-            href={`/search?category=${encodeURIComponent(name)}`}
+            href={`/category/${encodeURIComponent(name)}`}
             className="group flex flex-col items-center gap-2 rounded-xl border border-gray-200
                        bg-white p-5 shadow-sm hover:border-green-300 hover:shadow-md
                        transition-all duration-200"

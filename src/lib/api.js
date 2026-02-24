@@ -100,6 +100,11 @@ export const adsAPI = {
 
   getRecent: () => fetchAPI("/ads/recent"),
 
+  getByCategory: (category, params = {}) => {
+    const query = new URLSearchParams(params).toString();
+    return fetchAPI(`/ads/category/${encodeURIComponent(category)}?${query}`);
+  },
+
   getById: (id) => fetchAPI(`/ads/${id}`),
 
   create: (formData) =>
