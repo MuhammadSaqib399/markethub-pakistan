@@ -80,6 +80,86 @@
   }
 }
 
+/* ==================== BRAND TYPOGRAPHY ==================== */
+.brand-name {
+  font-family: var(--font-playfair), Georgia, serif;
+}
+
+.brand-slogan {
+  font-family: var(--font-outfit), system-ui, sans-serif;
+}
+
+/* Animated gradient text for hero brand */
+.brand-gradient-text {
+  background: linear-gradient(
+    135deg,
+    #ffffff 0%,
+    #bbf7d0 25%,
+    #ffffff 50%,
+    #86efac 75%,
+    #ffffff 100%
+  );
+  background-size: 400% 400%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: brandShimmer 6s ease-in-out infinite;
+}
+
+@keyframes brandShimmer {
+  0%, 100% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+}
+
+/* Glow effect behind brand name */
+.brand-glow {
+  text-shadow:
+    0 0 40px rgba(134, 239, 172, 0.4),
+    0 0 80px rgba(134, 239, 172, 0.2),
+    0 0 120px rgba(134, 239, 172, 0.1);
+}
+
+/* Underline decoration for brand */
+.brand-underline {
+  position: relative;
+  display: inline-block;
+}
+.brand-underline::after {
+  content: "";
+  position: absolute;
+  bottom: -8px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 60%;
+  height: 3px;
+  background: linear-gradient(90deg, transparent, rgba(134, 239, 172, 0.8), transparent);
+  border-radius: 2px;
+}
+
+/* Slogan letter-spacing animation */
+.slogan-reveal {
+  animation: sloganFadeUp 1.2s ease-out 0.5s both;
+}
+
+@keyframes sloganFadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(15px);
+    letter-spacing: 0.15em;
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+    letter-spacing: 0.05em;
+  }
+}
+
+/* Navbar brand styling */
+.nav-brand {
+  font-family: var(--font-playfair), Georgia, serif;
+  letter-spacing: -0.02em;
+}
+
 /* ==================== UTILITY STYLES ==================== */
 @layer utilities {
   /* Text truncation for ad titles */

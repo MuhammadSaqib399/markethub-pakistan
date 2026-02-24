@@ -1,9 +1,21 @@
-import { Inter } from "next/font/google";
+import { Inter, Playfair_Display, Outfit } from "next/font/google";
 import "./globals.css";
 import { AuthProvider } from "@/context/AuthContext";
 import { Toaster } from "react-hot-toast";
 
 const inter = Inter({ subsets: ["latin"], display: "swap" });
+const playfair = Playfair_Display({
+  subsets: ["latin"],
+  display: "swap",
+  variable: "--font-playfair",
+  weight: ["400", "700", "900"],
+});
+const outfit = Outfit({
+  subsets: ["latin"],
+  display: "swap",
+  variable: "--font-outfit",
+  weight: ["300", "400", "600", "800"],
+});
 
 export const metadata = {
   title: "Elyndra - We Won't Praise It. You'll Experience It.",
@@ -29,7 +41,7 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en" className={inter.className}>
+    <html lang="en" className={`${inter.className} ${playfair.variable} ${outfit.variable}`}>
       <body className="min-h-screen bg-gray-50 text-gray-900 antialiased">
         <AuthProvider>
           <Toaster

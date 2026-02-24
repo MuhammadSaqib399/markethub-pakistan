@@ -25,11 +25,13 @@ export default function Footer() {
           {/* ── Column 1: About ─────────────────────────────── */}
           <div>
             {/* Logo */}
-            <Link href="/" className="inline-flex items-center gap-1 mb-4">
-              <span className="text-2xl font-extrabold text-green-500">
-                Elyn
+            <Link href="/" className="inline-flex items-center mb-4">
+              <span className="nav-brand text-2xl font-black tracking-tight">
+                <span className="text-green-500">E</span>
+                <span className="text-white">LYN</span>
+                <span className="text-green-500">D</span>
+                <span className="text-white">RA</span>
               </span>
-              <span className="text-2xl font-extrabold text-white">dra</span>
             </Link>
             <p className="text-sm leading-relaxed text-gray-400">
               Elyndra is Pakistan&apos;s trusted online marketplace connecting

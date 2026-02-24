@@ -350,14 +350,33 @@ export default function HomePage() {
         <ParticleBackground />
 
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 sm:py-24 lg:py-32">
-          <div className="text-center space-y-6">
-            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-white tracking-tight">
-              <span className="text-green-200">Elyndra</span>
-            </h1>
-            <p className="text-lg sm:text-xl text-white/90 max-w-2xl mx-auto font-medium italic">
-              &ldquo;We won&apos;t praise it. You&apos;ll experience it.&rdquo;
-            </p>
-            <p className="text-base sm:text-lg text-green-100 max-w-2xl mx-auto">
+          <div className="text-center space-y-5">
+            {/* Brand Name — Unique Bold Design */}
+            <div className="relative inline-block">
+              {/* Background glow blur */}
+              <div className="absolute inset-0 blur-3xl opacity-30 bg-gradient-to-r from-green-300 via-emerald-200 to-green-300 scale-150" />
+              <h1 className="relative brand-name brand-underline">
+                <span className="block text-6xl sm:text-7xl lg:text-9xl font-black tracking-tight brand-gradient-text brand-glow leading-none">
+                  ELYNDRA
+                </span>
+              </h1>
+            </div>
+
+            {/* Slogan — Elegant & Animated */}
+            <div className="slogan-reveal">
+              <div className="flex items-center justify-center gap-3 sm:gap-4 mb-2">
+                <span className="h-px w-8 sm:w-16 bg-gradient-to-r from-transparent to-green-300/60" />
+                <p className="brand-slogan text-base sm:text-lg lg:text-xl text-white/90 font-light tracking-widest uppercase">
+                  We won&apos;t praise it
+                </p>
+                <span className="h-px w-8 sm:w-16 bg-gradient-to-l from-transparent to-green-300/60" />
+              </div>
+              <p className="brand-slogan text-xl sm:text-2xl lg:text-3xl text-green-200 font-semibold tracking-wide">
+                You&apos;ll <span className="text-white font-extrabold italic">Experience</span> It.
+              </p>
+            </div>
+
+            <p className="text-sm sm:text-base text-green-100/80 max-w-xl mx-auto pt-2 brand-slogan font-light tracking-wide">
               Pakistan&apos;s fastest growing marketplace. Discover great deals
               on mobiles, cars, property, electronics, and more near you.
             </p>

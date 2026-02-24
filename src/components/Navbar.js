@@ -128,11 +128,13 @@ export default function Navbar() {
         <div className="flex h-16 items-center justify-between gap-4">
 
           {/* ── Logo ─────────────────────────────────────────── */}
-          <Link href="/" className="flex-shrink-0 flex items-center gap-1">
-            <span className="text-2xl font-extrabold text-green-600">
-              Elyn
+          <Link href="/" className="flex-shrink-0 flex items-center">
+            <span className="nav-brand text-2xl sm:text-[1.7rem] font-black tracking-tight">
+              <span className="text-green-600">E</span>
+              <span className="text-gray-800">LYN</span>
+              <span className="text-green-600">D</span>
+              <span className="text-gray-800">RA</span>
             </span>
-            <span className="text-2xl font-extrabold text-gray-800">dra</span>
           </Link>
 
           {/* ── Desktop Search Bar ───────────────────────────── */}
