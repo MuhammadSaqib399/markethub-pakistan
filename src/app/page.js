@@ -8,6 +8,7 @@ import AdCard from "@/components/AdCard";
 import CategoryGrid from "@/components/CategoryGrid";
 import SearchBar from "@/components/SearchBar";
 import { adsAPI } from "@/lib/api";
+import ParticleBackground from "@/components/ParticleBackground";
 import {
   HiShieldCheck,
   HiUserGroup,
@@ -213,13 +214,10 @@ export default function HomePage() {
 
       {/* Hero Section */}
       <section className="relative overflow-hidden bg-gradient-to-br from-green-600 via-green-700 to-emerald-800">
-        <div className="absolute inset-0 opacity-10">
-          <div className="absolute top-0 -left-4 w-72 h-72 bg-white rounded-full mix-blend-overlay filter blur-3xl" />
-          <div className="absolute bottom-0 right-0 w-96 h-96 bg-emerald-300 rounded-full mix-blend-overlay filter blur-3xl" />
-          <div className="absolute top-1/2 left-1/2 w-64 h-64 bg-green-300 rounded-full mix-blend-overlay filter blur-3xl" />
-        </div>
+        {/* Interactive particle background */}
+        <ParticleBackground />
 
-        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 sm:py-24 lg:py-32">
+        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 sm:py-24 lg:py-32">
           <div className="text-center space-y-6">
             <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-white tracking-tight">
               Buy & Sell{" "}
