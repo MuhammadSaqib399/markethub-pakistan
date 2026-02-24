@@ -60,10 +60,10 @@ export default function ContactPage() {
                 <div>
                   <h3 className="text-sm font-semibold text-gray-900">Email</h3>
                   <a
-                    href="mailto:support@markethub.pk"
+                    href="mailto:support@elyndra.pk"
                     className="text-sm text-green-600 hover:underline"
                   >
-                    support@markethub.pk
+                    support@elyndra.pk
                   </a>
                 </div>
               </div>
@@ -96,7 +96,7 @@ export default function ContactPage() {
                     Office
                   </h3>
                   <p className="text-sm text-gray-500">
-                    MarketHub HQ, I.I. Chundrigar Road,
+                    Elyndra HQ, I.I. Chundrigar Road,
                     <br />
                     Karachi, Pakistan
                   </p>

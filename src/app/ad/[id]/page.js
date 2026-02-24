@@ -128,7 +128,7 @@ export default function AdDetailPage() {
       try {
         await navigator.share({
           title: ad?.title,
-          text: `Check out this listing on MarketHub: ${ad?.title}`,
+          text: `Check out this listing on Elyndra: ${ad?.title}`,
           url,
         });
       } catch {}
@@ -475,7 +475,7 @@ export default function AdDetailPage() {
                 <div className="min-w-0">
                   <div className="flex items-center gap-1.5">
                     <h4 className="font-semibold text-gray-900 truncate">
-                      {seller.name || "MarketHub User"}
+                      {seller.name || "Elyndra User"}
                     </h4>
                     {seller.verified && (
                       <HiCheckBadge className="h-5 w-5 text-blue-500 flex-shrink-0" />

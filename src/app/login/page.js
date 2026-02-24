@@ -184,7 +184,7 @@ export default function LoginPage() {
             </div>
             <div className="relative flex justify-center text-xs">
               <span className="bg-white px-3 text-gray-400">
-                New to MarketHub?
+                New to Elyndra?
               </span>
             </div>
           </div>

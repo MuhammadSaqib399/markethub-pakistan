@@ -21,7 +21,7 @@ export default function TermsPage() {
               1. Acceptance of Terms
             </h2>
             <p>
-              By accessing and using MarketHub Pakistan, you agree to be bound
+              By accessing and using Elyndra Pakistan, you agree to be bound
               by these Terms of Service. If you do not agree to these terms,
               please do not use our platform.
             </p>
@@ -58,7 +58,7 @@ export default function TermsPage() {
                 goods, and stolen property.
               </li>
               <li>
-                MarketHub reserves the right to remove any listing that violates
+                Elyndra reserves the right to remove any listing that violates
                 our guidelines.
               </li>
             </ul>
@@ -69,7 +69,7 @@ export default function TermsPage() {
               4. Transactions
             </h2>
             <p>
-              MarketHub is a platform that connects buyers and sellers. We do
+              Elyndra is a platform that connects buyers and sellers. We do
               not participate in or guarantee any transactions between users. All
               transactions are conducted at your own risk. We recommend meeting
               in public places and inspecting items before making payment.
@@ -100,7 +100,7 @@ export default function TermsPage() {
               6. Limitation of Liability
             </h2>
             <p>
-              MarketHub Pakistan shall not be liable for any direct, indirect,
+              Elyndra Pakistan shall not be liable for any direct, indirect,
               incidental, or consequential damages arising from your use of the
               platform or any transactions conducted through it. We provide the
               platform &ldquo;as is&rdquo; without warranties of any kind.
@@ -125,10 +125,10 @@ export default function TermsPage() {
             <p>
               If you have questions about these Terms, please contact us at{" "}
               <a
-                href="mailto:support@markethub.pk"
+                href="mailto:support@elyndra.pk"
                 className="text-green-600 hover:underline"
               >
-                support@markethub.pk
+                support@elyndra.pk
               </a>
               .
             </p>

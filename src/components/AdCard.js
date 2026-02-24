@@ -1,7 +1,7 @@
 "use client";
 
 /**
- * AdCard.js — MarketHub Pakistan
+ * AdCard.js — Elyndra Pakistan
  * ─────────────────────────────────────────────────────────────
  * Reusable card component for displaying a single classified ad
  * in grid / list views.

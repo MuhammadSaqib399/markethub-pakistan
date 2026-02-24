@@ -24,7 +24,7 @@ const VALUES = [
     icon: HiGlobeAlt,
     title: "Accessible to All",
     description:
-      "Free to list, free to browse. MarketHub makes buying and selling accessible to everyone across Pakistan.",
+      "Free to list, free to browse. Elyndra makes buying and selling accessible to everyone across Pakistan.",
   },
   {
     icon: HiChatBubbleLeftRight,
@@ -44,7 +44,7 @@ export default function AboutPage() {
         <div className="bg-gradient-to-br from-green-600 to-emerald-700 text-white py-16 sm:py-24">
           <div className="max-w-4xl mx-auto px-4 sm:px-6 text-center">
             <h1 className="text-3xl sm:text-4xl font-bold mb-4">
-              About MarketHub Pakistan
+              About Elyndra Pakistan
             </h1>
             <p className="text-lg text-green-100 max-w-2xl mx-auto leading-relaxed">
               Pakistan&apos;s trusted online marketplace connecting millions of
@@ -61,7 +61,7 @@ export default function AboutPage() {
               Our Mission
             </h2>
             <p className="text-gray-600 leading-relaxed">
-              MarketHub Pakistan was created with a simple mission: to make
+              Elyndra Pakistan was created with a simple mission: to make
               buying and selling easy, safe, and accessible for everyone in
               Pakistan. Whether you are in Karachi, Lahore, Islamabad, or a
               smaller city, we provide a platform where you can find what you
@@ -72,7 +72,7 @@ export default function AboutPage() {
               We believe in empowering individuals and small businesses by
               giving them the tools to reach buyers across the country. With
               categories spanning mobiles, cars, property, electronics, jobs,
-              and more, MarketHub is your one-stop marketplace.
+              and more, Elyndra is your one-stop marketplace.
             </p>
           </div>
         </div>

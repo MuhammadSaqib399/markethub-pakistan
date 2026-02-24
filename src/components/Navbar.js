@@ -1,7 +1,7 @@
 "use client";
 
 /**
- * Navbar.js — MarketHub Pakistan
+ * Navbar.js — Elyndra Pakistan
  * ─────────────────────────────────────────────────────────────
  * Professional marketplace navigation bar with green accent corporate theme.
  *
@@ -130,9 +130,9 @@ export default function Navbar() {
           {/* ── Logo ─────────────────────────────────────────── */}
           <Link href="/" className="flex-shrink-0 flex items-center gap-1">
             <span className="text-2xl font-extrabold text-green-600">
-              Market
+              Elyn
             </span>
-            <span className="text-2xl font-extrabold text-gray-800">Hub</span>
+            <span className="text-2xl font-extrabold text-gray-800">dra</span>
           </Link>
 
           {/* ── Desktop Search Bar ───────────────────────────── */}

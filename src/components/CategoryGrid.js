@@ -1,7 +1,7 @@
 "use client";
 
 /**
- * CategoryGrid.js — MarketHub Pakistan
+ * CategoryGrid.js — Elyndra Pakistan
  * ─────────────────────────────────────────────────────────────
  * Displays a responsive grid of 12 marketplace categories, each
  * represented by an icon, name, and placeholder ad count.

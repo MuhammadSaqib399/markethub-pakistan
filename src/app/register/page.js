@@ -92,7 +92,7 @@ export default function RegisterPage() {
         phone: formData.phone.trim() || undefined,
         password: formData.password,
       });
-      toast.success("Account created successfully! Welcome to MarketHub.");
+      toast.success("Account created successfully! Welcome to Elyndra.");
       router.push("/");
     } catch (err) {
       const message =

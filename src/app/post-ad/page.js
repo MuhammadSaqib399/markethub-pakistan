@@ -314,7 +314,7 @@ function PostAdPage() {
           <p className="text-gray-500 mt-1">
             {editId
               ? "Update the details of your listing"
-              : "Fill in the details to list your item on MarketHub Pakistan"}
+              : "Fill in the details to list your item on Elyndra Pakistan"}
           </p>
         </div>
 

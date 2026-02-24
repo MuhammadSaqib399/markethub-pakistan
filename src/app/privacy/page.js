@@ -111,10 +111,10 @@ export default function PrivacyPage() {
             <p>
               For privacy-related inquiries, contact us at{" "}
               <a
-                href="mailto:support@markethub.pk"
+                href="mailto:support@elyndra.pk"
                 className="text-green-600 hover:underline"
               >
-                support@markethub.pk
+                support@elyndra.pk
               </a>
               .
             </p>

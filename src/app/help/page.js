@@ -16,7 +16,7 @@ const FAQ_SECTIONS = [
       },
       {
         q: "Is it free to post ads?",
-        a: "Yes! Posting ads on MarketHub is completely free. Simply create an account, click 'Post Ad', and fill in the details of what you want to sell.",
+        a: "Yes! Posting ads on Elyndra is completely free. Simply create an account, click 'Post Ad', and fill in the details of what you want to sell.",
       },
       {
         q: "How do I search for items?",

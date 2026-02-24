@@ -1,7 +1,7 @@
 "use client";
 
 /**
- * SearchBar.js — MarketHub Pakistan
+ * SearchBar.js — Elyndra Pakistan
  * ─────────────────────────────────────────────────────────────
  * Large hero search bar for the homepage.
  *

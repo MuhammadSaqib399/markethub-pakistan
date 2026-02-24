@@ -183,7 +183,7 @@ const customerReviews = [
     name: "Fatima Noor",
     city: "Karachi",
     rating: 5,
-    review: "As a woman seller, I felt very safe using MarketHub. Verified buyers, quick responses, and sold my furniture set within a week!",
+    review: "As a woman seller, I felt very safe using Elyndra. Verified buyers, quick responses, and sold my furniture set within a week!",
     date: "1 week ago",
     avatar: "FN",
     bgColor: "bg-purple-500",
@@ -203,7 +203,7 @@ const customerReviews = [
     name: "Ayesha Tariq",
     city: "Rawalpindi",
     rating: 5,
-    review: "Maine apna ghar rent pe diya MarketHub ke through. Bahut reliable tenants mile. Customer support ne bhi bohat help ki!",
+    review: "Maine apna ghar rent pe diya Elyndra ke through. Bahut reliable tenants mile. Customer support ne bhi bohat help ki!",
     date: "5 days ago",
     avatar: "AT",
     bgColor: "bg-pink-500",
@@ -223,7 +223,7 @@ const customerReviews = [
     name: "Sana Malik",
     city: "Multan",
     rating: 5,
-    review: "I run a small clothing business and MarketHub helped me reach customers across Pakistan. Orders doubled in just one month!",
+    review: "I run a small clothing business and Elyndra helped me reach customers across Pakistan. Orders doubled in just one month!",
     date: "4 days ago",
     avatar: "SM",
     bgColor: "bg-teal-500",
@@ -248,7 +248,7 @@ const supportFeatures = [
   {
     icon: HiEnvelope,
     title: "Email Support",
-    desc: "Email us at support@markethub.pk. We respond within 2 hours during business hours.",
+    desc: "Email us at support@elyndra.pk. We respond within 2 hours during business hours.",
     color: "text-purple-600",
     bg: "bg-purple-50",
   },
@@ -352,12 +352,12 @@ export default function HomePage() {
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 sm:py-24 lg:py-32">
           <div className="text-center space-y-6">
             <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-white tracking-tight">
-              Buy & Sell{" "}
-              <span className="text-green-200">Anything</span>
-              <br />
-              in Pakistan
+              <span className="text-green-200">Elyndra</span>
             </h1>
-            <p className="text-lg sm:text-xl text-green-100 max-w-2xl mx-auto">
+            <p className="text-lg sm:text-xl text-white/90 max-w-2xl mx-auto font-medium italic">
+              &ldquo;We won&apos;t praise it. You&apos;ll experience it.&rdquo;
+            </p>
+            <p className="text-base sm:text-lg text-green-100 max-w-2xl mx-auto">
               Pakistan&apos;s fastest growing marketplace. Discover great deals
               on mobiles, cars, property, electronics, and more near you.
             </p>

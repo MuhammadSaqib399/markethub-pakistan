@@ -1,5 +1,5 @@
 /**
- * Footer.js — MarketHub Pakistan
+ * Footer.js — Elyndra
  * ─────────────────────────────────────────────────────────────
  * Professional four-column footer for the marketplace.
  *
@@ -27,12 +27,12 @@ export default function Footer() {
             {/* Logo */}
             <Link href="/" className="inline-flex items-center gap-1 mb-4">
               <span className="text-2xl font-extrabold text-green-500">
-                Market
+                Elyn
               </span>
-              <span className="text-2xl font-extrabold text-white">Hub</span>
+              <span className="text-2xl font-extrabold text-white">dra</span>
             </Link>
             <p className="text-sm leading-relaxed text-gray-400">
-              MarketHub is Pakistan&apos;s trusted online marketplace connecting
+              Elyndra is Pakistan&apos;s trusted online marketplace connecting
               buyers and sellers across the nation. Buy &amp; sell everything
               from mobiles and cars to property and services — quickly, safely,
               and locally.
@@ -122,10 +122,10 @@ export default function Footer() {
                   Email
                 </span>
                 <a
-                  href="mailto:support@markethub.pk"
+                  href="mailto:support@elyndra.pk"
                   className="hover:text-green-400 transition"
                 >
-                  support@markethub.pk
+                  support@elyndra.pk
                 </a>
               </li>
               <li>
@@ -144,7 +144,7 @@ export default function Footer() {
                   Address
                 </span>
                 <p className="text-gray-400">
-                  MarketHub HQ, I.I. Chundrigar Road,
+                  Elyndra HQ, I.I. Chundrigar Road,
                   <br />
                   Karachi, Pakistan
                 </p>
@@ -161,7 +161,7 @@ export default function Footer() {
                      flex flex-col items-center gap-2 sm:flex-row sm:justify-between"
         >
           <p className="text-xs text-gray-500">
-            &copy; {new Date().getFullYear()} MarketHub Pakistan. All rights reserved.
+            &copy; {new Date().getFullYear()} Elyndra. All rights reserved.
           </p>
           <p className="text-xs text-gray-500">
             Made with{" "}

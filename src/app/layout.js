@@ -6,24 +6,24 @@ import { Toaster } from "react-hot-toast";
 const inter = Inter({ subsets: ["latin"], display: "swap" });
 
 export const metadata = {
-  title: "MarketHub Pakistan - Buy & Sell Anything",
+  title: "Elyndra - We Won't Praise It. You'll Experience It.",
   description:
-    "MarketHub Pakistan is the leading online marketplace where you can buy and sell anything across Pakistan. Browse thousands of listings in mobiles, cars, property, electronics, jobs, services, and more in all major cities.",
+    "Elyndra is the leading online marketplace where you can buy and sell anything across Pakistan. Browse thousands of listings in mobiles, cars, property, electronics, jobs, services, and more in all major cities.",
   keywords: [
     "buy and sell Pakistan",
     "online marketplace Pakistan",
     "classified ads",
-    "MarketHub",
+    "Elyndra",
     "OLX alternative",
     "sell online",
   ],
   openGraph: {
-    title: "MarketHub Pakistan - Buy & Sell Anything",
+    title: "Elyndra - We Won't Praise It. You'll Experience It.",
     description:
       "Pakistan's trusted marketplace. Buy and sell mobiles, cars, property, electronics, and more.",
     type: "website",
     locale: "en_PK",
-    siteName: "MarketHub Pakistan",
+    siteName: "Elyndra",
   },
 };
 

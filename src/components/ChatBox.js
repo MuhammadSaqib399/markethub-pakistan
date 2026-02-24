@@ -1,7 +1,7 @@
 "use client";
 
 /**
- * ChatBox.js — MarketHub Pakistan
+ * ChatBox.js — Elyndra Pakistan
  * ─────────────────────────────────────────────────────────────
  * Real-time messaging component for buyer–seller conversations.
  *
