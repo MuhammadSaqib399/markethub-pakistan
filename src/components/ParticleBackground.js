@@ -12,7 +12,7 @@ export default function ParticleBackground() {
   const PARTICLE_COUNT = 80;
   const CONNECT_DIST = 150;
   const MOUSE_RADIUS = 200;
-  const ICON_COUNT = 22;
+  const ICON_COUNT = 70;
 
   // Marketplace icon SVG paths (drawn on canvas)
   const ICON_PATHS = [
@@ -40,6 +40,48 @@ export default function ParticleBackground() {
     { draw: (ctx, s) => { ctx.beginPath(); ctx.moveTo(-s*0.55,-s*0.3); ctx.lineTo(-s*0.45,s*0.75); ctx.lineTo(s*0.45,s*0.75); ctx.lineTo(s*0.55,-s*0.3); ctx.closePath(); ctx.fill(); ctx.strokeStyle="rgba(255,255,255,0.2)"; ctx.lineWidth=2; ctx.beginPath(); ctx.arc(0,-s*0.3,s*0.25,-Math.PI,0,false); ctx.stroke(); } },
     // Gamepad
     { draw: (ctx, s) => { ctx.beginPath(); ctx.roundRect(-s*0.8,-s*0.4,s*1.6,s*0.8,s*0.3); ctx.fill(); ctx.fillStyle="rgba(255,255,255,0.15)"; ctx.fillRect(-s*0.55,-s*0.12,s*0.3,s*0.06); ctx.fillRect(-s*0.48,-s*0.22,s*0.06,s*0.3); ctx.beginPath(); ctx.arc(s*0.35,-s*0.08,s*0.07,0,Math.PI*2); ctx.fill(); ctx.beginPath(); ctx.arc(s*0.5,s*0.05,s*0.07,0,Math.PI*2); ctx.fill(); } },
+    // TV / Monitor
+    { draw: (ctx, s) => { ctx.beginPath(); ctx.roundRect(-s*0.8,-s*0.6,s*1.6,s*1.0,s*0.06); ctx.fill(); ctx.fillRect(-s*0.15,s*0.42,s*0.3,s*0.2); ctx.fillRect(-s*0.35,s*0.6,s*0.7,s*0.08); ctx.fillStyle="rgba(255,255,255,0.12)"; ctx.beginPath(); ctx.roundRect(-s*0.65,-s*0.45,s*1.3,s*0.7,s*0.03); ctx.fill(); } },
+    // Headphones
+    { draw: (ctx, s) => { ctx.strokeStyle=ctx.fillStyle; ctx.lineWidth=s*0.15; ctx.beginPath(); ctx.arc(0,-s*0.15,s*0.5,Math.PI,0,false); ctx.stroke(); ctx.fillRect(-s*0.6,s*0.0,s*0.25,s*0.5); ctx.fillRect(s*0.35,s*0.0,s*0.25,s*0.5); ctx.beginPath(); ctx.roundRect(-s*0.65,-s*0.05,s*0.35,s*0.6,s*0.1); ctx.fill(); ctx.beginPath(); ctx.roundRect(s*0.3,-s*0.05,s*0.35,s*0.6,s*0.1); ctx.fill(); } },
+    // Ring / Jewelry
+    { draw: (ctx, s) => { ctx.strokeStyle=ctx.fillStyle; ctx.lineWidth=s*0.12; ctx.beginPath(); ctx.ellipse(0,s*0.15,s*0.45,s*0.5,0,0,Math.PI*2); ctx.stroke(); ctx.beginPath(); ctx.moveTo(-s*0.2,-s*0.35); ctx.lineTo(0,-s*0.7); ctx.lineTo(s*0.2,-s*0.35); ctx.closePath(); ctx.fill(); } },
+    // Key
+    { draw: (ctx, s) => { ctx.beginPath(); ctx.arc(-s*0.35,0,s*0.35,0,Math.PI*2); ctx.fill(); ctx.fillRect(-s*0.05,-s*0.08,s*0.85,s*0.16); ctx.fillRect(s*0.55,-s*0.25,s*0.12,s*0.2); ctx.fillRect(s*0.7,-s*0.2,s*0.12,s*0.15); ctx.fillStyle="rgba(255,255,255,0.12)"; ctx.beginPath(); ctx.arc(-s*0.35,0,s*0.18,0,Math.PI*2); ctx.fill(); } },
+    // Washing Machine
+    { draw: (ctx, s) => { ctx.beginPath(); ctx.roundRect(-s*0.6,-s*0.8,s*1.2,s*1.6,s*0.08); ctx.fill(); ctx.fillStyle="rgba(255,255,255,0.12)"; ctx.beginPath(); ctx.arc(0,s*0.15,s*0.4,0,Math.PI*2); ctx.fill(); ctx.fillStyle="rgba(255,255,255,0.08)"; ctx.beginPath(); ctx.arc(0,s*0.15,s*0.25,0,Math.PI*2); ctx.fill(); ctx.fillRect(-s*0.35,-s*0.65,s*0.12,s*0.12); ctx.fillRect(-s*0.15,-s*0.65,s*0.12,s*0.12); } },
+    // Airplane / Travel
+    { draw: (ctx, s) => { ctx.beginPath(); ctx.moveTo(0,-s*0.9); ctx.lineTo(s*0.12,-s*0.3); ctx.lineTo(s*0.85,s*0.1); ctx.lineTo(s*0.85,s*0.25); ctx.lineTo(s*0.12,s*0.1); ctx.lineTo(s*0.12,s*0.55); ctx.lineTo(s*0.35,s*0.75); ctx.lineTo(s*0.35,s*0.85); ctx.lineTo(0,s*0.65); ctx.lineTo(-s*0.35,s*0.85); ctx.lineTo(-s*0.35,s*0.75); ctx.lineTo(-s*0.12,s*0.55); ctx.lineTo(-s*0.12,s*0.1); ctx.lineTo(-s*0.85,s*0.25); ctx.lineTo(-s*0.85,s*0.1); ctx.lineTo(-s*0.12,-s*0.3); ctx.closePath(); ctx.fill(); } },
+    // Gift Box
+    { draw: (ctx, s) => { ctx.fillRect(-s*0.6,-s*0.3,s*1.2,s*0.9); ctx.fillRect(-s*0.7,-s*0.55,s*1.4,s*0.28); ctx.fillStyle="rgba(255,255,255,0.15)"; ctx.fillRect(-s*0.06,-s*0.55,s*0.12,s*1.15); ctx.fillRect(-s*0.7,-s*0.46,s*1.4,s*0.1); ctx.beginPath(); ctx.moveTo(0,-s*0.55); ctx.quadraticCurveTo(-s*0.35,-s*0.85,-s*0.5,-s*0.55); ctx.stroke(); ctx.beginPath(); ctx.moveTo(0,-s*0.55); ctx.quadraticCurveTo(s*0.35,-s*0.85,s*0.5,-s*0.55); ctx.stroke(); } },
+    // Rupee Sign (₨)
+    { draw: (ctx, s) => { ctx.font=`bold ${s*1.4}px sans-serif`; ctx.textAlign="center"; ctx.textBaseline="middle"; ctx.fillText("₨",0,0); } },
+    // Star / Rating
+    { draw: (ctx, s) => { ctx.beginPath(); for(let i=0;i<5;i++){const a=Math.PI*2*i/5-Math.PI/2; const b=Math.PI*2*(i+0.5)/5-Math.PI/2; ctx.lineTo(Math.cos(a)*s*0.7,Math.sin(a)*s*0.7); ctx.lineTo(Math.cos(b)*s*0.3,Math.sin(b)*s*0.3);} ctx.closePath(); ctx.fill(); } },
+    // Heart / Favourite
+    { draw: (ctx, s) => { ctx.beginPath(); ctx.moveTo(0,s*0.65); ctx.bezierCurveTo(-s*0.9,s*0.1,-s*0.9,-s*0.55,0,-s*0.25); ctx.bezierCurveTo(s*0.9,-s*0.55,s*0.9,s*0.1,0,s*0.65); ctx.closePath(); ctx.fill(); } },
+    // Truck / Delivery
+    { draw: (ctx, s) => { ctx.fillRect(-s*0.9,-s*0.4,s*1.2,s*0.7); ctx.fillRect(s*0.3,-s*0.25,s*0.55,s*0.55); ctx.beginPath(); ctx.moveTo(s*0.3,-s*0.25); ctx.lineTo(s*0.65,-s*0.55); ctx.lineTo(s*0.85,-s*0.55); ctx.lineTo(s*0.85,-s*0.25); ctx.closePath(); ctx.fill(); ctx.fillStyle="rgba(0,0,0,0.15)"; ctx.beginPath(); ctx.arc(-s*0.45,s*0.35,s*0.2,0,Math.PI*2); ctx.fill(); ctx.beginPath(); ctx.arc(s*0.6,s*0.35,s*0.2,0,Math.PI*2); ctx.fill(); } },
+    // Shoe / Sneaker
+    { draw: (ctx, s) => { ctx.beginPath(); ctx.moveTo(-s*0.7,s*0.1); ctx.lineTo(-s*0.7,-s*0.4); ctx.quadraticCurveTo(-s*0.5,-s*0.5,-s*0.2,-s*0.3); ctx.lineTo(s*0.5,-s*0.15); ctx.quadraticCurveTo(s*0.9,-s*0.1,s*0.9,s*0.2); ctx.lineTo(s*0.9,s*0.35); ctx.lineTo(-s*0.7,s*0.35); ctx.closePath(); ctx.fill(); ctx.fillStyle="rgba(255,255,255,0.1)"; ctx.fillRect(-s*0.6,s*0.15,s*1.4,s*0.08); } },
+    // Cat / Pet
+    { draw: (ctx, s) => { ctx.beginPath(); ctx.arc(0,s*0.1,s*0.5,0,Math.PI*2); ctx.fill(); ctx.beginPath(); ctx.moveTo(-s*0.45,-s*0.3); ctx.lineTo(-s*0.55,-s*0.8); ctx.lineTo(-s*0.15,-s*0.45); ctx.closePath(); ctx.fill(); ctx.beginPath(); ctx.moveTo(s*0.45,-s*0.3); ctx.lineTo(s*0.55,-s*0.8); ctx.lineTo(s*0.15,-s*0.45); ctx.closePath(); ctx.fill(); ctx.fillStyle="rgba(255,255,255,0.15)"; ctx.beginPath(); ctx.arc(-s*0.18,0,s*0.07,0,Math.PI*2); ctx.fill(); ctx.beginPath(); ctx.arc(s*0.18,0,s*0.07,0,Math.PI*2); ctx.fill(); } },
+    // Wrench / Tools
+    { draw: (ctx, s) => { ctx.save(); ctx.rotate(Math.PI*0.25); ctx.fillRect(-s*0.08,-s*0.8,s*0.16,s*1.3); ctx.beginPath(); ctx.arc(0,-s*0.8,s*0.25,0,Math.PI*2); ctx.fill(); ctx.fillStyle="rgba(0,0,0,0.1)"; ctx.beginPath(); ctx.arc(0,-s*0.8,s*0.12,0,Math.PI*2); ctx.fill(); ctx.restore(); } },
+    // Lightbulb / Idea
+    { draw: (ctx, s) => { ctx.beginPath(); ctx.arc(0,-s*0.2,s*0.45,0,Math.PI*2); ctx.fill(); ctx.beginPath(); ctx.moveTo(-s*0.22,s*0.2); ctx.lineTo(-s*0.18,s*0.6); ctx.lineTo(s*0.18,s*0.6); ctx.lineTo(s*0.22,s*0.2); ctx.closePath(); ctx.fill(); ctx.fillStyle="rgba(255,255,255,0.12)"; ctx.fillRect(-s*0.2,s*0.3,s*0.4,s*0.06); ctx.fillRect(-s*0.2,s*0.42,s*0.4,s*0.06); } },
+    // Bed / Furniture
+    { draw: (ctx, s) => { ctx.fillRect(-s*0.85,-s*0.1,s*1.7,s*0.35); ctx.fillRect(-s*0.85,-s*0.5,s*0.5,s*0.45); ctx.fillRect(-s*0.85,s*0.25,s*0.12,s*0.35); ctx.fillRect(s*0.73,s*0.25,s*0.12,s*0.35); ctx.fillStyle="rgba(255,255,255,0.1)"; ctx.beginPath(); ctx.ellipse(-s*0.6,-s*0.25,s*0.2,s*0.15,0,0,Math.PI*2); ctx.fill(); } },
+    // Bicycle
+    { draw: (ctx, s) => { ctx.strokeStyle=ctx.fillStyle; ctx.lineWidth=s*0.07; ctx.beginPath(); ctx.arc(-s*0.45,s*0.15,s*0.35,0,Math.PI*2); ctx.stroke(); ctx.beginPath(); ctx.arc(s*0.45,s*0.15,s*0.35,0,Math.PI*2); ctx.stroke(); ctx.beginPath(); ctx.moveTo(-s*0.45,s*0.15); ctx.lineTo(-s*0.1,-s*0.35); ctx.lineTo(s*0.3,-s*0.35); ctx.lineTo(s*0.45,s*0.15); ctx.lineTo(-s*0.1,-s*0.35); ctx.stroke(); ctx.fillRect(s*0.15,-s*0.5,s*0.05,s*0.2); ctx.fillRect(s*0.0,-s*0.55,s*0.35,s*0.06); } },
+    // Cup / Mug
+    { draw: (ctx, s) => { ctx.beginPath(); ctx.moveTo(-s*0.4,-s*0.5); ctx.lineTo(-s*0.35,s*0.5); ctx.lineTo(s*0.35,s*0.5); ctx.lineTo(s*0.4,-s*0.5); ctx.closePath(); ctx.fill(); ctx.strokeStyle=ctx.fillStyle; ctx.lineWidth=s*0.08; ctx.beginPath(); ctx.arc(s*0.5,0,s*0.2,-Math.PI*0.4,Math.PI*0.4); ctx.stroke(); } },
+    // Diamond / Gem
+    { draw: (ctx, s) => { ctx.beginPath(); ctx.moveTo(0,-s*0.8); ctx.lineTo(s*0.6,-s*0.2); ctx.lineTo(s*0.35,s*0.7); ctx.lineTo(-s*0.35,s*0.7); ctx.lineTo(-s*0.6,-s*0.2); ctx.closePath(); ctx.fill(); ctx.fillStyle="rgba(255,255,255,0.1)"; ctx.beginPath(); ctx.moveTo(0,-s*0.8); ctx.lineTo(s*0.15,-s*0.2); ctx.lineTo(0,s*0.7); ctx.lineTo(-s*0.15,-s*0.2); ctx.closePath(); ctx.fill(); } },
+    // WiFi Signal
+    { draw: (ctx, s) => { ctx.strokeStyle=ctx.fillStyle; ctx.lineWidth=s*0.1; ctx.beginPath(); ctx.arc(0,s*0.4,s*0.25,Math.PI*1.25,Math.PI*1.75); ctx.stroke(); ctx.beginPath(); ctx.arc(0,s*0.4,s*0.5,Math.PI*1.25,Math.PI*1.75); ctx.stroke(); ctx.beginPath(); ctx.arc(0,s*0.4,s*0.75,Math.PI*1.25,Math.PI*1.75); ctx.stroke(); ctx.beginPath(); ctx.arc(0,s*0.4,s*0.08,0,Math.PI*2); ctx.fill(); } },
+    // Microphone
+    { draw: (ctx, s) => { ctx.beginPath(); ctx.roundRect(-s*0.25,-s*0.7,s*0.5,s*0.85,s*0.25); ctx.fill(); ctx.strokeStyle=ctx.fillStyle; ctx.lineWidth=s*0.08; ctx.beginPath(); ctx.arc(0,-s*0.15,s*0.4,Math.PI*0.05,Math.PI*0.95); ctx.stroke(); ctx.fillRect(-s*0.04,s*0.2,s*0.08,s*0.35); ctx.fillRect(-s*0.2,s*0.55,s*0.4,s*0.08); } },
   ];
 
   const createParticle = useCallback((w, h) => ({
@@ -56,8 +98,8 @@ export default function ParticleBackground() {
     y: Math.random() * h,
     vx: (Math.random() - 0.5) * 0.3,
     vy: (Math.random() - 0.5) * 0.3,
-    size: Math.random() * 10 + 10,
-    opacity: Math.random() * 0.06 + 0.04, // very subtle: 0.04 - 0.10
+    size: Math.random() * 14 + 8,  // 8 - 22px range
+    opacity: Math.random() * 0.08 + 0.04, // subtle: 0.04 - 0.12
     rotation: Math.random() * Math.PI * 2,
     rotSpeed: (Math.random() - 0.5) * 0.008,
     iconIndex: Math.floor(Math.random() * ICON_PATHS.length),
