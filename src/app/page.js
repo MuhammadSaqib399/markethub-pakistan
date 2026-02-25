@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef, useCallback } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import Navbar from "@/components/Navbar";
@@ -288,6 +288,174 @@ function StarRating({ rating }) {
   );
 }
 
+const OFFER_BOARDS = [
+  {
+    id: 1,
+    gradient: "from-rose-600 via-pink-600 to-fuchsia-700",
+    badge: "MEGA SALE",
+    badgeColor: "bg-white text-rose-600",
+    title: "Up to 50% OFF",
+    subtitle: "on Electronics & Gadgets",
+    desc: "iPhones, Laptops, Smart TVs, Gaming Consoles — Limited Time Deals!",
+    cta: "Shop Electronics",
+    ctaLink: "/category/Electronics",
+    ctaColor: "bg-white text-rose-600 hover:bg-rose-50",
+    icon: "🔥",
+    pattern: "radial-gradient(circle at 90% 20%, rgba(255,255,255,0.08) 0%, transparent 50%)",
+  },
+  {
+    id: 2,
+    gradient: "from-blue-600 via-indigo-600 to-violet-700",
+    badge: "NEW ARRIVALS",
+    badgeColor: "bg-yellow-400 text-gray-900",
+    title: "Latest Mobiles 2026",
+    subtitle: "Samsung, iPhone, OnePlus & more",
+    desc: "Verified Sellers | EMI Available | Free Delivery in Major Cities",
+    cta: "Browse Mobiles",
+    ctaLink: "/category/Mobiles",
+    ctaColor: "bg-yellow-400 text-gray-900 hover:bg-yellow-300",
+    icon: "📱",
+    pattern: "radial-gradient(circle at 10% 80%, rgba(255,255,255,0.06) 0%, transparent 50%)",
+  },
+  {
+    id: 3,
+    gradient: "from-emerald-600 via-green-600 to-teal-700",
+    badge: "PROPERTY FEST",
+    badgeColor: "bg-white text-emerald-700",
+    title: "Dream Homes Await",
+    subtitle: "Houses, Plots & Apartments",
+    desc: "DHA, Bahria Town, Gulberg — Best Prices in Lahore, Karachi & Islamabad",
+    cta: "Explore Property",
+    ctaLink: "/category/Property",
+    ctaColor: "bg-white text-emerald-700 hover:bg-emerald-50",
+    icon: "🏠",
+    pattern: "radial-gradient(circle at 80% 70%, rgba(255,255,255,0.07) 0%, transparent 50%)",
+  },
+  {
+    id: 4,
+    gradient: "from-amber-500 via-orange-600 to-red-600",
+    badge: "CLEARANCE",
+    badgeColor: "bg-black text-white",
+    title: "Cars Under 15 Lakh",
+    subtitle: "Toyota, Honda, Suzuki — Verified Deals",
+    desc: "Inspected Vehicles | Ownership Transfer Support | Nationwide Listings",
+    cta: "Find Your Car",
+    ctaLink: "/category/Cars",
+    ctaColor: "bg-black text-white hover:bg-gray-900",
+    icon: "🚗",
+    pattern: "radial-gradient(circle at 20% 30%, rgba(255,255,255,0.06) 0%, transparent 50%)",
+  },
+  {
+    id: 5,
+    gradient: "from-purple-600 via-violet-600 to-indigo-700",
+    badge: "TRENDING",
+    badgeColor: "bg-pink-400 text-white",
+    title: "Fashion Week Sale",
+    subtitle: "Branded Clothing, Shoes & Accessories",
+    desc: "Khaadi, Gul Ahmed, Nike, Adidas — Up to 70% OFF on Pre-loved & New Items",
+    cta: "Shop Fashion",
+    ctaLink: "/category/Fashion",
+    ctaColor: "bg-pink-400 text-white hover:bg-pink-500",
+    icon: "👗",
+    pattern: "radial-gradient(circle at 85% 50%, rgba(255,255,255,0.05) 0%, transparent 50%)",
+  },
+];
+
+function OfferBoardSlider() {
+  const [current, setCurrent] = useState(0);
+  const [isHovered, setIsHovered] = useState(false);
+  const timerRef = useRef(null);
+
+  const nextSlide = useCallback(() => {
+    setCurrent((prev) => (prev + 1) % OFFER_BOARDS.length);
+  }, []);
+
+  const goTo = useCallback((idx) => {
+    setCurrent(idx);
+  }, []);
+
+  useEffect(() => {
+    if (!isHovered) {
+      timerRef.current = setInterval(nextSlide, 2500);
+    }
+    return () => clearInterval(timerRef.current);
+  }, [isHovered, nextSlide]);
+
+  const board = OFFER_BOARDS[current];
+
+  return (
+    <section
+      className="relative w-full overflow-hidden"
+      onMouseEnter={() => setIsHovered(true)}
+      onMouseLeave={() => setIsHovered(false)}
+    >
+      <div
+        className={`relative bg-gradient-to-r ${board.gradient} transition-all duration-700 ease-in-out`}
+        style={{ backgroundImage: board.pattern }}
+      >
+        {/* Decorative shapes */}
+        <div className="absolute inset-0 overflow-hidden pointer-events-none">
+          <div className="absolute -top-20 -right-20 w-64 h-64 bg-white/5 rounded-full" />
+          <div className="absolute -bottom-16 -left-16 w-48 h-48 bg-white/5 rounded-full" />
+          <div className="absolute top-1/2 right-1/4 w-32 h-32 bg-white/3 rounded-full blur-2xl" />
+        </div>
+
+        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-10">
+          <div className="flex flex-col sm:flex-row items-center gap-6 sm:gap-10">
+            {/* Icon */}
+            <div className="flex-shrink-0 text-5xl sm:text-7xl opacity-90 animate-bounce" style={{ animationDuration: "2s" }}>
+              {board.icon}
+            </div>
+
+            {/* Content */}
+            <div className="flex-1 text-center sm:text-left min-w-0">
+              <span className={`inline-block ${board.badgeColor} text-[10px] sm:text-xs font-black px-3 py-1 rounded-full tracking-widest mb-2`}>
+                {board.badge}
+              </span>
+              <h2 className="text-2xl sm:text-3xl lg:text-4xl font-black text-white leading-tight">
+                {board.title}
+              </h2>
+              <p className="text-base sm:text-lg text-white/90 font-semibold mt-1">
+                {board.subtitle}
+              </p>
+              <p className="text-xs sm:text-sm text-white/60 mt-1.5 max-w-lg">
+                {board.desc}
+              </p>
+            </div>
+
+            {/* CTA */}
+            <div className="flex-shrink-0">
+              <Link
+                href={board.ctaLink}
+                className={`inline-flex items-center gap-2 ${board.ctaColor} px-6 sm:px-8 py-3 rounded-xl text-sm font-bold shadow-lg hover:shadow-xl transition-all transform hover:scale-105`}
+              >
+                {board.cta}
+                <HiArrowRight className="h-4 w-4" />
+              </Link>
+            </div>
+          </div>
+
+          {/* Dots */}
+          <div className="flex items-center justify-center gap-2 mt-5">
+            {OFFER_BOARDS.map((_, idx) => (
+              <button
+                key={idx}
+                onClick={() => goTo(idx)}
+                className={`transition-all duration-300 rounded-full ${
+                  idx === current
+                    ? "w-8 h-2.5 bg-white"
+                    : "w-2.5 h-2.5 bg-white/40 hover:bg-white/60"
+                }`}
+                aria-label={`Go to offer ${idx + 1}`}
+              />
+            ))}
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
+
 export default function HomePage() {
   const [featuredAds, setFeaturedAds] = useState([]);
   const [recentAds, setRecentAds] = useState([]);
@@ -356,7 +524,7 @@ export default function HomePage() {
               {/* Background glow blur */}
               <div className="absolute inset-0 blur-3xl opacity-30 bg-gradient-to-r from-yellow-200 via-amber-100 to-yellow-200 scale-150" />
               <h1 className="relative brand-name brand-underline">
-                <span className="block text-6xl sm:text-7xl lg:text-9xl font-black tracking-tight brand-gradient-text brand-glow leading-none">
+                <span className="block text-5xl sm:text-7xl lg:text-9xl font-black tracking-tight brand-gradient-text brand-glow leading-none">
                   ELYNDRA
                 </span>
               </h1>
@@ -402,6 +570,9 @@ export default function HomePage() {
           </div>
         </div>
       </section>
+
+      {/* ── Offer Boards Slider ──────────────────────────────── */}
+      <OfferBoardSlider />
 
       {/* Categories Section */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-16 w-full">

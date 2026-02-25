@@ -532,6 +532,45 @@ export default function Navbar() {
 
             <hr className="border-gray-100" />
 
+            {/* Mobile Categories */}
+            <p className="px-3 pt-2 pb-1 text-[10px] font-semibold text-gray-400 uppercase tracking-wider">Categories</p>
+            <div className="grid grid-cols-3 gap-1 px-2">
+              {NAV_CATEGORIES.map(({ name, icon: CatIcon }) => (
+                <Link
+                  key={name}
+                  href={`/category/${encodeURIComponent(name)}`}
+                  onClick={() => setMobileMenuOpen(false)}
+                  className="flex flex-col items-center gap-1 rounded-lg py-2 text-[11px] font-medium text-gray-600 hover:text-green-700 hover:bg-green-50 transition-colors"
+                >
+                  <CatIcon className="h-4 w-4" />
+                  {name}
+                </Link>
+              ))}
+            </div>
+
+            <hr className="border-gray-100" />
+
+            {/* Mobile Quick Links */}
+            <div className="grid grid-cols-2 gap-1 px-2">
+              {[
+                { label: "Help", href: "/help", Icon: HiQuestionMarkCircle },
+                { label: "About", href: "/about", Icon: HiInformationCircle },
+                { label: "Contact", href: "/contact", Icon: HiPhone },
+                { label: "Settings", href: "/settings", Icon: HiCog6Tooth },
+              ].map(({ label, href, Icon }) => (
+                <Link
+                  key={label}
+                  href={href}
+                  onClick={() => setMobileMenuOpen(false)}
+                  className="flex items-center gap-2 rounded-lg px-3 py-2 text-xs font-medium text-gray-500 hover:text-gray-700 hover:bg-gray-50"
+                >
+                  <Icon className="h-3.5 w-3.5" /> {label}
+                </Link>
+              ))}
+            </div>
+
+            <hr className="border-gray-100" />
+
             {user ? (
               <>
                 {/* User info row */}
