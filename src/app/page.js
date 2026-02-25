@@ -10,6 +10,7 @@ import CategoryGrid from "@/components/CategoryGrid";
 import SearchBar from "@/components/SearchBar";
 import { adsAPI } from "@/lib/api";
 import ParticleBackground from "@/components/ParticleBackground";
+import SplashIntro from "@/components/SplashIntro";
 import {
   HiShieldCheck,
   HiUserGroup,
@@ -481,10 +482,15 @@ function HeroBannerCarousel() {
 }
 
 export default function HomePage() {
+  const [showSplash, setShowSplash] = useState(true);
   const [featuredAds, setFeaturedAds] = useState([]);
   const [recentAds, setRecentAds] = useState([]);
   const [loadingFeatured, setLoadingFeatured] = useState(true);
   const [loadingRecent, setLoadingRecent] = useState(true);
+
+  const handleSplashComplete = useCallback(() => {
+    setShowSplash(false);
+  }, []);
 
   useEffect(() => {
     const fetchFeatured = async () => {
@@ -534,6 +540,9 @@ export default function HomePage() {
 
   return (
     <div className="min-h-screen flex flex-col">
+      {/* ── Splash Intro Animation ─────────────────────────── */}
+      {showSplash && <SplashIntro onComplete={handleSplashComplete} />}
+
       <Navbar />
 
       {/* ── Hero Banner Carousel (Amazon-style) ─────────────── */}
