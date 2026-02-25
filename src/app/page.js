@@ -288,100 +288,102 @@ function StarRating({ rating }) {
   );
 }
 
-const OFFER_BOARDS = [
+const HERO_BANNERS = [
   {
     id: 1,
-    gradient: "from-rose-600 via-pink-600 to-fuchsia-700",
-    badge: "MEGA SALE",
-    badgeColor: "bg-white text-rose-600",
-    title: "Up to 50% OFF",
-    subtitle: "on Electronics & Gadgets",
-    desc: "iPhones, Laptops, Smart TVs, Gaming Consoles — Limited Time Deals!",
-    cta: "Shop Electronics",
+    bg: "bg-red-600",
+    title: "MEGA ELECTRONICS SALE",
+    subtitle: "Up to 50% OFF",
+    desc: "iPhones, MacBooks, Smart TVs, PS5 & more",
+    cta: "Shop Now",
     ctaLink: "/category/Electronics",
-    ctaColor: "bg-white text-rose-600 hover:bg-rose-50",
-    icon: "🔥",
-    pattern: "radial-gradient(circle at 90% 20%, rgba(255,255,255,0.08) 0%, transparent 50%)",
+    image: "https://images.unsplash.com/photo-1517336714731-489689fd1ca8?w=600&h=500&fit=crop",
+    imageAlt: "MacBook Laptop",
+    tag: "LIMITED TIME",
   },
   {
     id: 2,
-    gradient: "from-blue-600 via-indigo-600 to-violet-700",
-    badge: "NEW ARRIVALS",
-    badgeColor: "bg-yellow-400 text-gray-900",
-    title: "Latest Mobiles 2026",
-    subtitle: "Samsung, iPhone, OnePlus & more",
-    desc: "Verified Sellers | EMI Available | Free Delivery in Major Cities",
+    bg: "bg-red-700",
+    title: "LATEST MOBILES 2026",
+    subtitle: "Samsung | iPhone | OnePlus",
+    desc: "Verified sellers, EMI available, free delivery",
     cta: "Browse Mobiles",
     ctaLink: "/category/Mobiles",
-    ctaColor: "bg-yellow-400 text-gray-900 hover:bg-yellow-300",
-    icon: "📱",
-    pattern: "radial-gradient(circle at 10% 80%, rgba(255,255,255,0.06) 0%, transparent 50%)",
+    image: "https://images.unsplash.com/photo-1678685888221-cda773a3dcdb?w=600&h=500&fit=crop",
+    imageAlt: "iPhone 14 Pro",
+    tag: "NEW ARRIVALS",
   },
   {
     id: 3,
-    gradient: "from-emerald-600 via-green-600 to-teal-700",
-    badge: "PROPERTY FEST",
-    badgeColor: "bg-white text-emerald-700",
-    title: "Dream Homes Await",
+    bg: "bg-red-600",
+    title: "DREAM HOMES AWAIT",
     subtitle: "Houses, Plots & Apartments",
-    desc: "DHA, Bahria Town, Gulberg — Best Prices in Lahore, Karachi & Islamabad",
+    desc: "DHA, Bahria Town — Lahore, Karachi, Islamabad",
     cta: "Explore Property",
     ctaLink: "/category/Property",
-    ctaColor: "bg-white text-emerald-700 hover:bg-emerald-50",
-    icon: "🏠",
-    pattern: "radial-gradient(circle at 80% 70%, rgba(255,255,255,0.07) 0%, transparent 50%)",
+    image: "https://images.unsplash.com/photo-1564013799919-ab600027ffc6?w=600&h=500&fit=crop",
+    imageAlt: "Beautiful House",
+    tag: "PROPERTY FEST",
   },
   {
     id: 4,
-    gradient: "from-amber-500 via-orange-600 to-red-600",
-    badge: "CLEARANCE",
-    badgeColor: "bg-black text-white",
-    title: "Cars Under 15 Lakh",
-    subtitle: "Toyota, Honda, Suzuki — Verified Deals",
-    desc: "Inspected Vehicles | Ownership Transfer Support | Nationwide Listings",
+    bg: "bg-red-700",
+    title: "CARS UNDER 15 LAKH",
+    subtitle: "Toyota | Honda | Suzuki",
+    desc: "Inspected vehicles with ownership transfer support",
     cta: "Find Your Car",
     ctaLink: "/category/Cars",
-    ctaColor: "bg-black text-white hover:bg-gray-900",
-    icon: "🚗",
-    pattern: "radial-gradient(circle at 20% 30%, rgba(255,255,255,0.06) 0%, transparent 50%)",
+    image: "https://images.unsplash.com/photo-1606611013016-969c19ba27bb?w=600&h=500&fit=crop",
+    imageAlt: "Honda Civic Car",
+    tag: "CLEARANCE SALE",
   },
   {
     id: 5,
-    gradient: "from-purple-600 via-violet-600 to-indigo-700",
-    badge: "TRENDING",
-    badgeColor: "bg-pink-400 text-white",
-    title: "Fashion Week Sale",
-    subtitle: "Branded Clothing, Shoes & Accessories",
-    desc: "Khaadi, Gul Ahmed, Nike, Adidas — Up to 70% OFF on Pre-loved & New Items",
+    bg: "bg-red-600",
+    title: "FASHION WEEK SALE",
+    subtitle: "Up to 70% OFF",
+    desc: "Khaadi, Gul Ahmed, Nike, Adidas — branded & pre-loved",
     cta: "Shop Fashion",
     ctaLink: "/category/Fashion",
-    ctaColor: "bg-pink-400 text-white hover:bg-pink-500",
-    icon: "👗",
-    pattern: "radial-gradient(circle at 85% 50%, rgba(255,255,255,0.05) 0%, transparent 50%)",
+    image: "https://images.unsplash.com/photo-1483985988355-763728e1935b?w=600&h=500&fit=crop",
+    imageAlt: "Fashion Shopping",
+    tag: "TRENDING NOW",
+  },
+  {
+    id: 6,
+    bg: "bg-red-700",
+    title: "FURNITURE CLEARANCE",
+    subtitle: "Sofas, Beds, Tables — 40% OFF",
+    desc: "Imported & local furniture at unbeatable prices",
+    cta: "Shop Furniture",
+    ctaLink: "/category/Furniture",
+    image: "https://images.unsplash.com/photo-1555041469-a586c61ea9bc?w=600&h=500&fit=crop",
+    imageAlt: "Sofa Set",
+    tag: "BEST DEALS",
   },
 ];
 
-function OfferBoardSlider() {
+function HeroBannerCarousel() {
   const [current, setCurrent] = useState(0);
   const [isHovered, setIsHovered] = useState(false);
   const timerRef = useRef(null);
 
   const nextSlide = useCallback(() => {
-    setCurrent((prev) => (prev + 1) % OFFER_BOARDS.length);
+    setCurrent((prev) => (prev + 1) % HERO_BANNERS.length);
   }, []);
 
-  const goTo = useCallback((idx) => {
-    setCurrent(idx);
+  const prevSlide = useCallback(() => {
+    setCurrent((prev) => (prev - 1 + HERO_BANNERS.length) % HERO_BANNERS.length);
   }, []);
 
   useEffect(() => {
     if (!isHovered) {
-      timerRef.current = setInterval(nextSlide, 2500);
+      timerRef.current = setInterval(nextSlide, 2000);
     }
     return () => clearInterval(timerRef.current);
   }, [isHovered, nextSlide]);
 
-  const board = OFFER_BOARDS[current];
+  const banner = HERO_BANNERS[current];
 
   return (
     <section
@@ -389,67 +391,89 @@ function OfferBoardSlider() {
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
     >
-      <div
-        className={`relative bg-gradient-to-r ${board.gradient} transition-all duration-700 ease-in-out`}
-        style={{ backgroundImage: board.pattern }}
-      >
-        {/* Decorative shapes */}
-        <div className="absolute inset-0 overflow-hidden pointer-events-none">
-          <div className="absolute -top-20 -right-20 w-64 h-64 bg-white/5 rounded-full" />
-          <div className="absolute -bottom-16 -left-16 w-48 h-48 bg-white/5 rounded-full" />
-          <div className="absolute top-1/2 right-1/4 w-32 h-32 bg-white/3 rounded-full blur-2xl" />
+      <div className={`relative ${banner.bg} transition-colors duration-500`}>
+        {/* Decorative patterns */}
+        <div className="absolute inset-0 pointer-events-none overflow-hidden">
+          <div className="absolute top-0 left-0 w-full h-full opacity-10"
+            style={{ backgroundImage: "radial-gradient(circle at 30% 50%, rgba(255,255,255,0.15) 0%, transparent 60%)" }} />
+          <div className="absolute -top-32 -right-32 w-96 h-96 bg-white/5 rounded-full" />
+          <div className="absolute -bottom-24 -left-24 w-72 h-72 bg-black/10 rounded-full" />
         </div>
 
-        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-10">
-          <div className="flex flex-col sm:flex-row items-center gap-6 sm:gap-10">
-            {/* Icon */}
-            <div className="flex-shrink-0 text-5xl sm:text-7xl opacity-90 animate-bounce" style={{ animationDuration: "2s" }}>
-              {board.icon}
-            </div>
+        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="flex flex-col-reverse sm:flex-row items-center min-h-[280px] sm:min-h-[360px] lg:min-h-[420px] py-6 sm:py-0">
 
-            {/* Content */}
-            <div className="flex-1 text-center sm:text-left min-w-0">
-              <span className={`inline-block ${board.badgeColor} text-[10px] sm:text-xs font-black px-3 py-1 rounded-full tracking-widest mb-2`}>
-                {board.badge}
+            {/* Left — Text Content */}
+            <div className="flex-1 text-center sm:text-left py-4 sm:py-10 lg:py-16">
+              <span className="inline-block bg-yellow-400 text-black text-[10px] sm:text-xs font-black px-3 sm:px-4 py-1 rounded-sm tracking-widest mb-3 animate-pulse">
+                {banner.tag}
               </span>
-              <h2 className="text-2xl sm:text-3xl lg:text-4xl font-black text-white leading-tight">
-                {board.title}
-              </h2>
-              <p className="text-base sm:text-lg text-white/90 font-semibold mt-1">
-                {board.subtitle}
+              <h1 className="text-2xl sm:text-4xl lg:text-5xl xl:text-6xl font-black text-white leading-tight tracking-tight">
+                {banner.title}
+              </h1>
+              <p className="text-lg sm:text-xl lg:text-2xl text-yellow-300 font-extrabold mt-2">
+                {banner.subtitle}
               </p>
-              <p className="text-xs sm:text-sm text-white/60 mt-1.5 max-w-lg">
-                {board.desc}
+              <p className="text-xs sm:text-sm text-white/70 mt-2 max-w-md">
+                {banner.desc}
               </p>
-            </div>
-
-            {/* CTA */}
-            <div className="flex-shrink-0">
               <Link
-                href={board.ctaLink}
-                className={`inline-flex items-center gap-2 ${board.ctaColor} px-6 sm:px-8 py-3 rounded-xl text-sm font-bold shadow-lg hover:shadow-xl transition-all transform hover:scale-105`}
+                href={banner.ctaLink}
+                className="inline-flex items-center gap-2 bg-yellow-400 hover:bg-yellow-300 text-black px-6 sm:px-8 py-2.5 sm:py-3 rounded-lg text-sm sm:text-base font-black mt-4 shadow-xl hover:shadow-2xl transition-all transform hover:scale-105"
               >
-                {board.cta}
-                <HiArrowRight className="h-4 w-4" />
+                {banner.cta}
+                <HiArrowRight className="h-4 w-4 sm:h-5 sm:w-5" />
               </Link>
             </div>
-          </div>
 
-          {/* Dots */}
-          <div className="flex items-center justify-center gap-2 mt-5">
-            {OFFER_BOARDS.map((_, idx) => (
-              <button
-                key={idx}
-                onClick={() => goTo(idx)}
-                className={`transition-all duration-300 rounded-full ${
-                  idx === current
-                    ? "w-8 h-2.5 bg-white"
-                    : "w-2.5 h-2.5 bg-white/40 hover:bg-white/60"
-                }`}
-                aria-label={`Go to offer ${idx + 1}`}
+            {/* Right — Product Image */}
+            <div className="flex-shrink-0 relative w-48 h-48 sm:w-64 sm:h-64 lg:w-80 lg:h-80 xl:w-96 xl:h-96">
+              <div className="absolute inset-0 bg-white/10 rounded-full blur-3xl scale-110" />
+              <Image
+                src={banner.image}
+                alt={banner.imageAlt}
+                fill
+                className="object-contain drop-shadow-2xl relative z-10 transition-all duration-500"
+                sizes="(max-width: 640px) 192px, (max-width: 1024px) 256px, 384px"
+                priority={banner.id === 1}
               />
-            ))}
+            </div>
           </div>
+        </div>
+
+        {/* Left/Right Arrows */}
+        <button
+          onClick={prevSlide}
+          className="absolute left-2 sm:left-4 top-1/2 -translate-y-1/2 z-20 w-8 h-8 sm:w-10 sm:h-10 flex items-center justify-center bg-black/30 hover:bg-black/50 text-white rounded-full transition-all"
+          aria-label="Previous"
+        >
+          <svg className="w-4 h-4 sm:w-5 sm:h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M15 19l-7-7 7-7" /></svg>
+        </button>
+        <button
+          onClick={nextSlide}
+          className="absolute right-2 sm:right-4 top-1/2 -translate-y-1/2 z-20 w-8 h-8 sm:w-10 sm:h-10 flex items-center justify-center bg-black/30 hover:bg-black/50 text-white rounded-full transition-all"
+          aria-label="Next"
+        >
+          <svg className="w-4 h-4 sm:w-5 sm:h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M9 5l7 7-7 7" /></svg>
+        </button>
+
+        {/* Bottom Dots + Counter */}
+        <div className="absolute bottom-3 sm:bottom-5 left-1/2 -translate-x-1/2 z-20 flex items-center gap-2">
+          {HERO_BANNERS.map((_, idx) => (
+            <button
+              key={idx}
+              onClick={() => setCurrent(idx)}
+              className={`transition-all duration-300 rounded-full ${
+                idx === current
+                  ? "w-8 h-2.5 bg-yellow-400"
+                  : "w-2.5 h-2.5 bg-white/40 hover:bg-white/60"
+              }`}
+              aria-label={`Banner ${idx + 1}`}
+            />
+          ))}
+          <span className="text-white/50 text-[10px] font-bold ml-2">
+            {current + 1}/{HERO_BANNERS.length}
+          </span>
         </div>
       </div>
     </section>
@@ -512,67 +536,8 @@ export default function HomePage() {
     <div className="min-h-screen flex flex-col">
       <Navbar />
 
-      {/* Hero Section */}
-      <section className="relative overflow-hidden bg-gradient-to-br from-yellow-500 via-amber-600 to-orange-700">
-        {/* Interactive particle background */}
-        <ParticleBackground />
-
-        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 sm:py-24 lg:py-32">
-          <div className="text-center space-y-5">
-            {/* Brand Name — Unique Bold Design */}
-            <div className="relative inline-block">
-              {/* Background glow blur */}
-              <div className="absolute inset-0 blur-3xl opacity-30 bg-gradient-to-r from-yellow-200 via-amber-100 to-yellow-200 scale-150" />
-              <h1 className="relative brand-name brand-underline">
-                <span className="block text-5xl sm:text-7xl lg:text-9xl font-black tracking-tight brand-gradient-text brand-glow leading-none">
-                  ELYNDRA
-                </span>
-              </h1>
-            </div>
-
-            {/* Slogan — Elegant & Animated */}
-            <div className="slogan-reveal">
-              <div className="flex items-center justify-center gap-3 sm:gap-4 mb-2">
-                <span className="h-px w-8 sm:w-16 bg-gradient-to-r from-transparent to-yellow-200/60" />
-                <p className="brand-slogan text-base sm:text-lg lg:text-xl text-white/90 font-light tracking-widest uppercase">
-                  We won&apos;t praise it
-                </p>
-                <span className="h-px w-8 sm:w-16 bg-gradient-to-l from-transparent to-yellow-200/60" />
-              </div>
-              <p className="brand-slogan text-xl sm:text-2xl lg:text-3xl text-yellow-100 font-semibold tracking-wide">
-                You&apos;ll <span className="text-white font-extrabold italic">Experience</span> It.
-              </p>
-            </div>
-
-            <p className="text-sm sm:text-base text-yellow-50/80 max-w-xl mx-auto pt-2 brand-slogan font-light tracking-wide">
-              Pakistan&apos;s fastest growing marketplace. Discover great deals
-              on mobiles, cars, property, electronics, and more near you.
-            </p>
-
-            <div className="max-w-3xl mx-auto pt-4">
-              <SearchBar />
-            </div>
-
-            <div className="flex flex-wrap items-center justify-center gap-6 pt-4 text-yellow-50 text-sm">
-              <span className="flex items-center gap-1.5">
-                <HiShieldCheck className="h-5 w-5" />
-                Verified Sellers
-              </span>
-              <span className="flex items-center gap-1.5">
-                <HiMapPin className="h-5 w-5" />
-                All Major Cities
-              </span>
-              <span className="flex items-center gap-1.5">
-                <HiStar className="h-5 w-5" />
-                Free to Post
-              </span>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* ── Offer Boards Slider ──────────────────────────────── */}
-      <OfferBoardSlider />
+      {/* ── Hero Banner Carousel (Amazon-style) ─────────────── */}
+      <HeroBannerCarousel />
 
       {/* Categories Section */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-16 w-full">
